@@ -1,3 +1,3 @@
 <template>
-  <h1>ikasama</h1>
+  <h1>bobo</h1>
 </template>
