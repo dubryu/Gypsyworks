@@ -1,6 +1,6 @@
 export default {
   router: {
-    base: '/gypsyworks/'
+    base: '/gypsyworks/pages/'
   },
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
