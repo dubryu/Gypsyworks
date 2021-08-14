@@ -1,6 +1,6 @@
 export default {
   router: {
-    base: '/gypsyworks/dist/'
+    base: '/gypsyworks/'
   },
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
