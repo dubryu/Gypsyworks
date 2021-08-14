@@ -1,1 +1,0 @@
-window.__NUXT__=(function(a){return {staticAssetsBase:"\u002Fgypsyworks\u002Fpages\u002F_nuxt\u002Fstatic\u002F1628910919",layout:"default",error:a,serverRendered:true,routePath:"\u002Ffun",config:{_app:{basePath:"\u002Fgypsyworks\u002Fpages\u002F",assetsPath:"\u002Fgypsyworks\u002Fpages\u002F_nuxt\u002F",cdnURL:a}}}}(null));
