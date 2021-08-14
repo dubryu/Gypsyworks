@@ -4,6 +4,9 @@
   <NuxtLink to="/fun">
       fun (internal link that belongs to the Nuxt App)
   </NuxtLink>
+  <NuxtLink to="/about">
+      about (internal link that belongs to the Nuxt App)
+  </NuxtLink>
   </main>
 </template>
 
