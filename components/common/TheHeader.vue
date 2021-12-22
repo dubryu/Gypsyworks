@@ -38,6 +38,6 @@
       }
     //}
     width: 100%;
-    background-color: #000;
+    background-color: #A4A4A4;
   }
 </style>
