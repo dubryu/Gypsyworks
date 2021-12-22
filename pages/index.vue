@@ -43,7 +43,7 @@
     <NuxtLink to="/fun">
         fun (internal link that belongs to the Nuxt App)
     </NuxtLink>
-    <NuxtLink to="/about">
+    <NuxtLink to="/catalog">
         about (internal link that belongs to the Nuxt App)
     </NuxtLink>
   </main>
