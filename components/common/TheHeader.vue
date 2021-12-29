@@ -6,9 +6,11 @@
       </NuxtLink>
       <div class="navmenuContainer">
         <NuxtLink to="/catalog">
-            <div class="navmenu">catalog</div>
+          <div class="navmenu">catalog</div>
         </NuxtLink>
-        <div class="navmenu">PHOTOS</div>
+        <NuxtLink to="/animation">
+          <div class="navmenu">PHOTOS</div>
+        </NuxtLink>
         <a class="navmenu" href="https://gypsyworks.stores.jp" target="blank">SHOP</a>
       </div>
     </div>

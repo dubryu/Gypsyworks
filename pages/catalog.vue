@@ -2,7 +2,7 @@
   <main>
     <section>
       <div class="title_container">
-        <h1 class="title_txt">CLOTHES</h1>
+        <h1 class="title_txt">CATALOG</h1>
       </div>
       <div class="top_container">
         <div class="main_bg">
