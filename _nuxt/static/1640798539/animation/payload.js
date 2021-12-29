@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/animation", {data:[{}],fetch:{},mutations:void 0});
