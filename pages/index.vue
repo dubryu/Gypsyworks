@@ -47,13 +47,13 @@
         </div>
       <!-- </div> -->
     </section>
-    <h1>Hello world!</h1>
+    <!-- <h1>Hello world!</h1>
     <NuxtLink to="/fun">
         fun (internal link that belongs to the Nuxt App)
     </NuxtLink>
     <NuxtLink to="/catalog">
         about (internal link that belongs to the Nuxt App)
-    </NuxtLink>
+    </NuxtLink> -->
     <section>
       <div id='collection-component-1640798152613'></div>
       <script type="text/javascript">
