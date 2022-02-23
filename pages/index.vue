@@ -9,19 +9,7 @@
     </section>
     <section>
       <div class="title_container">
-        <h1 class="title_txt">yoyo</h1>
-      </div>
-      <div class="page_container">
-        <div class="centerize_container">
-          <div class="catalog_item"></div>
-          <div class="catalog_item"></div>
-          <div class="catalog_item"></div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="title_container">
-        <h1 class="title_txt">PHOTOS</h1>
+        <h1 class="title_txt">NEW (product list with no categoris)</h1>
       </div>
       <div class="page_container">
         <div class="centerize_container">
@@ -36,6 +24,18 @@
             <img class="photo_item"></img>
             <img class="photo_item"></img>
           </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="title_container">
+        <h1 class="title_txt">CATEGORYS</h1>
+      </div>
+      <div class="page_container">
+        <div class="centerize_container">
+          <div class="catalog_item"></div>
+          <div class="catalog_item"></div>
+          <div class="catalog_item"></div>
         </div>
       </div>
     </section>

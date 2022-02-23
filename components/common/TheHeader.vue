@@ -5,11 +5,11 @@
       <div class="navlogo"></div>
       </NuxtLink>
       <div class="navmenuContainer">
-        <NuxtLink to="/catalog">
-          <div class="navmenu">catalog</div>
+        <NuxtLink to="/categorys">
+          <div class="navmenu">CATEGORYS</div>
         </NuxtLink>
-        <NuxtLink to="/animation">
-          <div class="navmenu">PHOTOS</div>
+        <NuxtLink to="/catalog_parallax">
+          <div class="navmenu">CATALOG_PARA</div>
         </NuxtLink>
         <a class="navmenu" href="https://gypsyworks.stores.jp" target="blank">SHOP</a>
       </div>

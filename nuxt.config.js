@@ -61,8 +61,8 @@ export default {
     //     }
     //   }
     // }
-  }
-  ,
+    transpile: ['vue-intersect'],
+  },
   // generate: {
   //   dir: 'docs'
   // }
