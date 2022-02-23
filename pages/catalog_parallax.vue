@@ -44,8 +44,6 @@
             <h2 class="main_title" v-rellax="{ speed:2 }">スケートボード</h2>
             <div class="left_spacer" ref="tri4">{{ msg }}</div>
             <span>{{ scrollY }}</span>
-            <!-- Intersectはrightsplit内imgのheight可変を始める座標の取得タイミングとして使ってる -->
-
             <div class="left_trigger" v-observe-visibility="visibility3Changed">trigger</div>
             <!-- <Intersect @enter="isIntersectionElement4" @leave="isNotIntersectionElement4"> -->
             <div class="left_trigger" v-observe-visibility="visibility4Changed">trigger2</div>
@@ -341,10 +339,6 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
-    // const tri1Rect = this.$refs.tri1.getBoundingClientRect();
-    // const tri2Rect = this.$refs.tri2.getBoundingClientRect();
-    // const tri3Rect = this.$refs.tri3.getBoundingClientRect();
-    // const tri4Rect = this.$refs.tri4.getBoundingClientRect();
     this.scrollStartYIn1 = this.$refs.tri1.getBoundingClientRect().top;
     this.scrollStartY2In1 = this.$refs.tri2.getBoundingClientRect().top;
     this.scrollStartYIn2 = this.$refs.tri3.getBoundingClientRect().top;
@@ -361,7 +355,6 @@ export default {
     visibility1Changed (isVisible, entry) {
       if (isVisible) {
         this.isInview = true;
-        // this.scrollStartYIn1 = this.scrollY;
         this.msg = this.scrollStartYIn1; // for debug
         this.visible1 = true;
         console.log(entry);
@@ -370,7 +363,6 @@ export default {
     visibility2Changed (isVisible, entry) {
       if (isVisible) {
         this.isInview = true;
-        // this.scrollStartY2In1 = this.scrollY;
         this.msg = this.scrollStartY2In1; // for debug
         this.visible2 = true;
         console.log(entry);
@@ -379,7 +371,6 @@ export default {
     visibility3Changed (isVisible, entry) {
       if (isVisible) {
         this.isInview = true;
-        // this.scrollStartYIn2 = this.scrollY;
         this.msg = this.scrollStartYIn2; // for debug
         this.visible3 = true;
         console.log(entry);
@@ -388,36 +379,14 @@ export default {
     visibility4Changed (isVisible, entry) {
       if (isVisible) {
         this.isInview = true;
-        // this.scrollStartY2In2 = this.scrollY;
         this.msg = this.scrollStartY2In2; // for debug
         this.visible4 = true;
-        console.log(entry);
+        
       }
     },
     handleScroll() {
       // スクロール量の取得代入
       this.scrollY = window.scrollY;
-      // if (!this.visible1) {
-      //   this.visible1 = window.scrollY > this.scrollStartYIn1;
-      //   // console.log("handleScroll_should be 1")
-      // } else if (window.scrollY < this.scrollStartYIn1) {
-      //   this.visible1 = !this.visible1;
-      // }
-      // if (!this.visible2) {
-      //   this.visible2 = window.scrollY > this.scrollStartY2In1;
-      // } else if (window.scrollY < this.scrollStartY2In1) {
-      //   this.visible2 = !this.visible2;
-      // }
-      // if (!this.visible3) {
-      //   this.visible3 = window.scrollY > this.scrollStartYIn2;
-      // } else if (window.scrollY < this.scrollStartYIn2) {
-      //   this.visible3 = !this.visible3;
-      // }
-      // if (!this.visible4) {
-      //   this.visible4 = window.scrollY > this.scrollStartY2In2;
-      // } else if (window.scrollY < this.scrollStartY2In2) {
-      //   this.visible4 = !this.visible4;
-      // }
     },
 
   },
@@ -430,11 +399,11 @@ export default {
       // cssのカスタムプロパティ
       return {
         '--scroll-Y': this.scrollY,
-        '--scrollStart-YIn1': this.scrollStartYIn1, // img可変動作が始まる時点のスクロール量
+        '--scrollStart-YIn1': this.scrollStartYIn1, // img可変動作が始まる座標
         '--scrollStart-Y2In1': this.scrollStartY2In1,
         '--scrollStart-YIn2': this.scrollStartYIn2,
         '--scrollStart-Y2In2': this.scrollStartY2In2,
-        '--switch-Length': this.switchLength, // 高さ可変imgの100%height表示までのスクロール量
+        '--switch-Length': this.switchLength, // 高さ可変imgの100%height表示までの距離
       };
     },
   },
