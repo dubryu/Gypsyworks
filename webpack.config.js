@@ -1,7 +1,7 @@
-const path = require('path')
-
-module.exports = {
-  resolve: {
-    modules: ['node_modules'],
-  },
-}
+// const path = require('path')
+//
+// module.exports = {
+//   resolve: {
+//     modules: ['node_modules'],
+//   },
+// }
