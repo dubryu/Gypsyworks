@@ -6,13 +6,13 @@
         <div class="title_container">
           <h1 class="title_txt">CATALOG</h1>
         </div>
-        <div class="main_container" ref="tri1">
+        <div ref="tri1" class="main_container">
           <div class="left_split">
-            <h2 class="main_title" v-rellax="{ speed:2 }">手ぬぐい</h2>
-            <div class="left_spacer" ref="tri2">{{ msg }}</div>
+            <h2 v-rellax="{ speed:2 }" class="main_title">手ぬぐい</h2>
+            <div ref="tri2" class="left_spacer">{{ msg }}</div>
             <span>{{ scrollY }}</span>
-            <div class="left_trigger" v-observe-visibility="visibility1Changed">trigger</div>
-            <div class="left_trigger" v-observe-visibility="visibility2Changed">trigger2</div>
+            <div v-observe-visibility="visibility1Changed" class="left_trigger">trigger</div>
+            <div v-observe-visibility="visibility2Changed" class="left_trigger">trigger2</div>
           </div>
           <div class="right_sprit">
               <div class="right-sticky">
@@ -39,14 +39,14 @@
       </section>
 
       <section>
-        <div class="main_container_second" ref="tri3">
+        <div ref="tri3" class="main_container_second">
           <div class="left_split">
-            <h2 class="main_title" v-rellax="{ speed:2 }">スケートボード</h2>
-            <div class="left_spacer" ref="tri4">{{ msg }}</div>
+            <h2 v-rellax="{ speed:2 }" class="main_title">スケートボード</h2>
+            <div ref="tri4" class="left_spacer">{{ msg }}</div>
             <span>{{ scrollY }}</span>
-            <div class="left_trigger" v-observe-visibility="visibility3Changed">trigger</div>
+            <div v-observe-visibility="visibility3Changed" class="left_trigger">trigger</div>
             <!-- <Intersect @enter="isIntersectionElement4" @leave="isNotIntersectionElement4"> -->
-            <div class="left_trigger" v-observe-visibility="visibility4Changed">trigger2</div>
+            <div v-observe-visibility="visibility4Changed" class="left_trigger">trigger2</div>
             <!-- </Intersect> -->
           </div>
           <div class="right_sprit">
@@ -345,6 +345,28 @@ export default {
       percentFour: 0 + "%",
     }
   },
+  computed: {
+    /**
+     * このコンポーネント中で用いるCSS変数をまとめる.
+     * @return {object}
+     */
+    styleVariables() {
+      // cssのカスタムプロパティ
+      return {
+        '--scroll-Y': this.scrollY,
+        '--scrollStart-YIn1': this.scrollStartYIn1, // img可変動作が始まる座標
+        '--scrollStart-Y2In1': this.scrollStartY2In1,
+        '--scrollStart-YIn2': this.scrollStartYIn2,
+        '--scrollStart-Y2In2': this.scrollStartY2In2,
+        // this.percentOne = this.scrollStartYIn1 + this.switchLength - this.scrollY >= 0 ? (this.scrollStartYIn1 + this.switchLength - this.scrollY) * 100 / this.switchLength + "%" : 0 + "%";
+        // this.percentTwo = this.scrollStartY2In1 + this.switchLength - this.scrollY >= 0 ? (this.scrollStartYIn1 + this.switchLength - this.scrollY) * 100 / this.switchLength + "%" : 0 + "%";
+        // '--scrollStart-YIn2': this.scrollStartYIn2 + this.switchLength - this.scrollY >= 0 ? (this.scrollStartYIn1 + this.switchLength - this.scrollY) * 100 / this.switchLength + "%" : 0 + "%",
+        // '--scrollStart-Y2In2': this.scrollStartY2In2 + this.switchLength - this.scrollY >= 0 ? (this.scrollStartYIn1 + this.switchLength - this.scrollY) * 100 / this.switchLength + "%" : 0 + "%",
+        '--switch-Length': this.switchLength, // 高さ可変imgの100%height表示までの距離
+      };
+    },
+    // = styleVariables: function () {}
+  },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
     // 垂直スライドの起点の要素の座標を取得
@@ -405,28 +427,6 @@ export default {
         // '--switch-Length': this.switchLength, // 高さ可変imgの100%height表示までの距離
       };
     },
-  },
-  computed: {
-    /**
-     * このコンポーネント中で用いるCSS変数をまとめる.
-     * @return {object}
-     */
-    styleVariables() {
-      // cssのカスタムプロパティ
-      return {
-        '--scroll-Y': this.scrollY,
-        '--scrollStart-YIn1': this.scrollStartYIn1, // img可変動作が始まる座標
-        '--scrollStart-Y2In1': this.scrollStartY2In1,
-        '--scrollStart-YIn2': this.scrollStartYIn2,
-        '--scrollStart-Y2In2': this.scrollStartY2In2,
-        // this.percentOne = this.scrollStartYIn1 + this.switchLength - this.scrollY >= 0 ? (this.scrollStartYIn1 + this.switchLength - this.scrollY) * 100 / this.switchLength + "%" : 0 + "%";
-        // this.percentTwo = this.scrollStartY2In1 + this.switchLength - this.scrollY >= 0 ? (this.scrollStartYIn1 + this.switchLength - this.scrollY) * 100 / this.switchLength + "%" : 0 + "%";
-        // '--scrollStart-YIn2': this.scrollStartYIn2 + this.switchLength - this.scrollY >= 0 ? (this.scrollStartYIn1 + this.switchLength - this.scrollY) * 100 / this.switchLength + "%" : 0 + "%",
-        // '--scrollStart-Y2In2': this.scrollStartY2In2 + this.switchLength - this.scrollY >= 0 ? (this.scrollStartYIn1 + this.switchLength - this.scrollY) * 100 / this.switchLength + "%" : 0 + "%",
-        '--switch-Length': this.switchLength, // 高さ可変imgの100%height表示までの距離
-      };
-    },
-    // = styleVariables: function () {}
   },
 }
 

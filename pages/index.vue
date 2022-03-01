@@ -174,7 +174,7 @@
 import BoxCat1 from '../components/common/BoxCat1'
 import '../assets/scss/style.scss'
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     BoxCat1
   },
