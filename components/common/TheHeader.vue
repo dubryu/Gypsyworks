@@ -2,7 +2,9 @@
   <nav>
     <div class="navbar">
       <NuxtLink to="/">
-      <div class="navlogo"></div>
+      <div class="navlogo">
+        <img class="logo_img" src="../../static/Gypsyworks_logo_black.png"></img>
+      </div>
       </NuxtLink>
       <div class="navmenuContainer">
         <NuxtLink to="/categorys">
@@ -28,7 +30,11 @@
       height:80px;
       width:80px;
       float: left;
-      background-color: #f5f;
+      background-color: #f56;
+      .logo_img{
+        height: auto;
+        width: 100%;
+      }
     }
     //.navmenuContainer{
       .navmenu{

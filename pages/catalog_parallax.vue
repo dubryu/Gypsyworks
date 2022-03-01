@@ -1,25 +1,25 @@
 <template>
+
   <main>
 
       <section>
         <div class="title_container">
           <h1 class="title_txt">CATALOG</h1>
         </div>
-        <div class="main_container">
-          <div class="left_split" ref="tri1">
-            <h2 class="main_title" v-rellax="{ speed:2 }">てteぐい</h2>
+        <div class="main_container" ref="tri1">
+          <div class="left_split">
+            <h2 class="main_title" v-rellax="{ speed:2 }">手ぬぐい</h2>
             <div class="left_spacer" ref="tri2">{{ msg }}</div>
             <span>{{ scrollY }}</span>
-            <!-- imgのheight可変を始める座標の取得タイミングとして使ってる -->
             <div class="left_trigger" v-observe-visibility="visibility1Changed">trigger</div>
             <div class="left_trigger" v-observe-visibility="visibility2Changed">trigger2</div>
           </div>
           <div class="right_sprit">
-            <div class="right-sticky">
-              <img class="right_img_container" :style="styleVariables" src="../static/tyedie.jpg"></img>
-              <img class="right_img_container2" v-show="visible1" :style="styleVariables" src="../static/tyedie2.jpg"></img>
-              <img class="right_img_container3" v-show="visible2" :style="styleVariables" src="../static/tyedie3.jpg"></img>
-            </div>
+              <div class="right-sticky">
+                <img class="right_img_container" :style="styleVariables" src="../static/tyedie.jpg"></img>
+                <img class="right_img_container2" :style="styleVariables" src="../static/tyedie2.jpg"></img>
+                <img class="right_img_container3" :style="styleVariables" src="../static/tyedie3.jpg"></img>
+              </div>
           </div>
 
           <!-- <div class="detail_container">
@@ -52,23 +52,24 @@
           <div class="right_sprit">
             <div class="right-sticky">
               <img class="right_img_container" :style="styleVariables" src="../static/tyedie.jpg"></img>
-              <img class="right_img_container4" v-show="visible3" :style="styleVariables" src="../static/wood1.jpg"></img>
-              <img class="right_img_container5" v-show="visible4" :style="styleVariables" src="../static/iphone1.jpg"></img>
+              <img class="right_img_container4" :style="styleVariables" src="../static/wood1.jpg"></img>
+              <img class="right_img_container5" :style="styleVariables" src="../static/iphone1.jpg"></img>
             </div>
           </div>
         </div>
       </section>
-    <section>
-      <div class="title_container">
-        <h1 class="title_txt">How to order {{ scrollY }}</h1>
-      </div>
-      <div class="page_container">
-        <instagram-embed
-          :url="'https://www.instagram.com/p/Bs_yHwHBjKo/'"
-        />
-      </div>
-    </section>
+      <section>
+        <div class="title_container">
+          <h1 class="title_txt">How to order {{ scrollY }}</h1>
+        </div>
+        <div class="page_container">
+          <instagram-embed
+            :url="'https://www.instagram.com/p/Bs_yHwHBjKo/'"
+          />
+        </div>
+      </section>
   </main>
+
 </template>
 
 <style scoped lang="scss">
@@ -129,7 +130,7 @@
       height: 255px;
       margin-top: 140px;
       background-color: rgb(0, 100, 199);
-      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      // clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     }
     .left_trigger{
       margin-top: 100px;
@@ -184,10 +185,9 @@
         object-fit: cover;
         object-position: top;
         position: absolute;
-        //clip-path
-        // clip-path: inset(0%, 0%, calc((var(--scrollStart-YIn1) + var(--switch-Length) - (var(--scroll-Y))) * 100% / var(--switch-Length)));
-        // clip-path: inset(0%, 0%, 10%);
+        // clip-path
         clip-path: inset(0% 0% calc((var(--scrollStart-YIn1) + var(--switch-Length) - (var(--scroll-Y))) * 100% / var(--switch-Length)));
+        // clip-path: inset(0% 0% var(--scrollStart-YIn1));
       }
       .right_img_container3{
         top: 0;
@@ -205,6 +205,7 @@
         object-position: top;
         position: absolute;
         clip-path: inset(0% 0% calc((var(--scrollStart-Y2In1) + var(--switch-Length) - (var(--scroll-Y))) * 100% / var(--switch-Length)));
+        // clip-path: inset(0% 0% var(--scrollStart-Y2In1));
       }
       .right_img_container4{
         top: 0;
@@ -220,6 +221,7 @@
         object-position: top;
         position: absolute;
         clip-path: inset(0% 0% calc((var(--scrollStart-YIn2) + var(--switch-Length) - (var(--scroll-Y))) * 100% / var(--switch-Length)));
+        // clip-path: inset(0% 0% var(--scrollStart-YIn2));
       }
       .right_img_container5{
         top: 0;
@@ -235,6 +237,7 @@
         object-position: top;
         position: absolute;
         clip-path: inset(0% 0% calc((var(--scrollStart-Y2In2) + var(--switch-Length) - (var(--scroll-Y))) * 100% / var(--switch-Length)));
+        // clip-path: inset(0% 0% var(--scrollStart-Y2In2));
       }
     }
 
@@ -302,6 +305,7 @@
 
 <script>
 // import Intersect from 'vue-intersect'
+// import luxy from "luxy.js"
 export default {
   // components: { Intersect },
   name: 'SwiperNuxt',
@@ -335,10 +339,15 @@ export default {
       scrollStartY2In1: 0,
       scrollStartYIn2: 0,
       scrollStartY2In2: 0,
+      percentOne: 0 + "%",
+      percentTwo: 0 + "%",
+      percentThree: 0 + "%",
+      percentFour: 0 + "%",
     }
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
+    // 垂直スライドの起点の要素の座標を取得
     this.scrollStartYIn1 = this.$refs.tri1.getBoundingClientRect().top;
     this.scrollStartY2In1 = this.$refs.tri2.getBoundingClientRect().top;
     this.scrollStartYIn2 = this.$refs.tri3.getBoundingClientRect().top;
@@ -347,6 +356,7 @@ export default {
     console.log('対象のDOM：', this.scrollStartY2In1);
     console.log('対象のDOM：', this.scrollStartYIn2);
     console.log('対象のDOM：', this.scrollStartY2In2);
+    // luxy.init();
   },
   methods: {
     onSwiperClickSlide (index, reallyIndex) {
@@ -355,7 +365,6 @@ export default {
     visibility1Changed (isVisible, entry) {
       if (isVisible) {
         this.isInview = true;
-        this.msg = this.scrollStartYIn1; // for debug
         this.visible1 = true;
         console.log(entry);
       }
@@ -363,7 +372,6 @@ export default {
     visibility2Changed (isVisible, entry) {
       if (isVisible) {
         this.isInview = true;
-        this.msg = this.scrollStartY2In1; // for debug
         this.visible2 = true;
         console.log(entry);
       }
@@ -371,7 +379,6 @@ export default {
     visibility3Changed (isVisible, entry) {
       if (isVisible) {
         this.isInview = true;
-        this.msg = this.scrollStartYIn2; // for debug
         this.visible3 = true;
         console.log(entry);
       }
@@ -379,16 +386,25 @@ export default {
     visibility4Changed (isVisible, entry) {
       if (isVisible) {
         this.isInview = true;
-        this.msg = this.scrollStartY2In2; // for debug
         this.visible4 = true;
-        
+        console.log(entry);
       }
     },
     handleScroll() {
       // スクロール量の取得代入
       this.scrollY = window.scrollY;
     },
-
+    styleVariablesMethod() {
+      // cssのカスタムプロパティ
+      return {
+        // '--scroll-Y': this.scrollY,
+        // '--scrollStart-YIn1': this.scrollStartYIn1, // img可変動作が始まる座標
+        // '--scrollStart-Y2In1': (this.scrollStartY2In1 + this.switchLength - this.scrollY) * 100 / this.scrollY + "%",
+        // '--scrollStart-YIn2': (this.scrollStartYIn2 + this.switchLength - this.scrollY) * 100 / this.scrollY + "%",
+        // '--scrollStart-Y2In2': (this.scrollStartY2In2 + this.switchLength - this.scrollY) * 100 / this.scrollY + "%",
+        // '--switch-Length': this.switchLength, // 高さ可変imgの100%height表示までの距離
+      };
+    },
   },
   computed: {
     /**
@@ -403,9 +419,14 @@ export default {
         '--scrollStart-Y2In1': this.scrollStartY2In1,
         '--scrollStart-YIn2': this.scrollStartYIn2,
         '--scrollStart-Y2In2': this.scrollStartY2In2,
+        // this.percentOne = this.scrollStartYIn1 + this.switchLength - this.scrollY >= 0 ? (this.scrollStartYIn1 + this.switchLength - this.scrollY) * 100 / this.switchLength + "%" : 0 + "%";
+        // this.percentTwo = this.scrollStartY2In1 + this.switchLength - this.scrollY >= 0 ? (this.scrollStartYIn1 + this.switchLength - this.scrollY) * 100 / this.switchLength + "%" : 0 + "%";
+        // '--scrollStart-YIn2': this.scrollStartYIn2 + this.switchLength - this.scrollY >= 0 ? (this.scrollStartYIn1 + this.switchLength - this.scrollY) * 100 / this.switchLength + "%" : 0 + "%",
+        // '--scrollStart-Y2In2': this.scrollStartY2In2 + this.switchLength - this.scrollY >= 0 ? (this.scrollStartYIn1 + this.switchLength - this.scrollY) * 100 / this.switchLength + "%" : 0 + "%",
         '--switch-Length': this.switchLength, // 高さ可変imgの100%height表示までの距離
       };
     },
+    // = styleVariables: function () {}
   },
 }
 

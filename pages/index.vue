@@ -1,19 +1,27 @@
 <template>
   <main>
     <section id="topback">
-      <div id="toplogo"></div>
+      <div id="toplogo">
+        <img class="logo_img" src="../static/Gypsyworks_logo_black.png"></img>
+      </div>
       <div id="sns_container">
-        <img class="snsimg"></img>
-        <img class="snsimg"></img>
+        <img class="snsimg" src="../static/Instagram_logo.png"></img>
+        <img class="snsimg" src="../static/Twitter_blue.png"></img>
       </div>
     </section>
     <section>
       <div class="title_container">
-        <h1 class="title_txt">NEW (product list with no categoris)</h1>
+        <h1 class="title_txt">カテゴリ</h1>
       </div>
-      <div class="page_container">
+      <div class="section_container">
+
         <div class="centerize_container">
+          <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
+          <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
+          <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
           <div class="photo_bg">
+            <!-- <iframe frameborder="0" height="220" width="160" src="https://mrbicycle.base.ec/items/15896127/widget/small" ></iframe> -->
+            <!-- <img class="photo_item"></img>
             <img class="photo_item"></img>
             <img class="photo_item"></img>
             <img class="photo_item"></img>
@@ -21,8 +29,7 @@
             <img class="photo_item"></img>
             <img class="photo_item"></img>
             <img class="photo_item"></img>
-            <img class="photo_item"></img>
-            <img class="photo_item"></img>
+            <img class="photo_item"></img> -->
           </div>
         </div>
       </div>
@@ -31,7 +38,7 @@
       <div class="title_container">
         <h1 class="title_txt">CATEGORYS</h1>
       </div>
-      <div class="page_container">
+      <div class="section_container">
         <div class="centerize_container">
           <div class="catalog_item"></div>
           <div class="catalog_item"></div>
@@ -164,6 +171,7 @@
 
 <script>
 import BoxCat1 from '../components/common/BoxCat1'
+import '../assets/scss/style.scss'
 export default {
   name: 'app',
   components: {
@@ -191,52 +199,71 @@ export default {
     position: relative;
     #toplogo{
       position: absolute;
-      width: 20vh;
-      height: 20vh;
-      background-color: rgb(100, 250, 200);
+      width: 30vh;
+      height: 30vh;
+      // background-color: rgb(100, 250, 200);
       //css3の中央揃え
-      position: absolute;
       top: 50%;
       left: 50%;
       // margin-right: -50%;
       transform: translate(-50%, -50%);
+      .logo_img{
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
     }
     #sns_container{
       position:absolute;
+      display: flex;
       width: 30vh;
       height: 10vh;
       left: 5%;
       bottom:10%;
-      background-color: rgb(0, 0, 200);
+      //background-color: rgb(0, 0, 200);
       .snsimg{
-        margin: 2px;
-        background-color: rgb(200, 0, 200);
+        margin: 0px 10px;
+        //background-color: rgb(200, 0, 200);
+        width: 8vh;
+        height: 8vh;
       }
     }
   }
-
-  .page_container{
+  .title_txt{
+    font-family: 'TF-HOTSU_L';
+    font-size: 40px;
+    color: rgb(100, 150, 100);
+  }
+  .section_container{
+    // width: 100vw;
+    // height: 100vh;
     .centerize_container{
-      .catalog_item{
-        width: 18vw;
-        height: 60vh;
-        margin: 10px;
-        background-color: rgb(0, 0, 0);
-      }
+      // width: 100%;
+      // height: 100%;
+      background-color: rgb(50, 100, 150);
       .photo_bg{
         display: flex;
         flex-wrap: wrap;
-        justify-content: left;
-        width: 80vw;
+        justify-content: center;
         background-color: rgb(0, 255, 0);
+        .storesjp-button{
+          width: 16vw;
+          height: 16vw;
+          margin: 10px;
+        }
         .photo_item{
           width: 16vw;
           height: 16vw;
           margin: 0px;
-          background-color: rgb(0, 0, 0);
+          background-color: rgb(100, 0, 0);
         }
       }
-
+      .catalog_item{
+        width: 18vw;
+        height: 60vh;
+        margin: 10px;
+        background-color: rgb(0, 44,44);
+      }
     }
   }
   .stage {
@@ -253,5 +280,10 @@ export default {
   position: absolute;
   width: 100%;
   user-select: none;
+  }
+  @font-face {
+  	font-family: 'hotu';
+  	src: url('../assets/fonts/TF-HOTSU_L.TTF');
+    // src: local('TCM Hotsuma Character Large');
   }
 </style>
