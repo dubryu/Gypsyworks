@@ -16,9 +16,9 @@
           </div>
           <div class="right_sprit">
               <div class="right-sticky">
-                <img class="right_img_container" :style="styleVariables" src="../static/tyedie.jpg"></img>
-                <img class="right_img_container2" :style="styleVariables" src="../static/tyedie2.jpg"></img>
-                <img class="right_img_container3" :style="styleVariables" src="../static/tyedie3.jpg"></img>
+                <img class="right_img_container" :style="styleVariables" src="~@/static/tyedie.jpg"></img>
+                <img class="right_img_container2" :style="styleVariables" src="~@/static/tyedie2.jpg"></img>
+                <img class="right_img_container3" :style="styleVariables" src="~@/static/tyedie3.jpg"></img>
               </div>
           </div>
 
@@ -51,9 +51,9 @@
           </div>
           <div class="right_sprit">
             <div class="right-sticky">
-              <img class="right_img_container" :style="styleVariables" src="../static/tyedie.jpg"></img>
-              <img class="right_img_container4" :style="styleVariables" src="../static/wood1.jpg"></img>
-              <img class="right_img_container5" :style="styleVariables" src="../static/iphone1.jpg"></img>
+              <img class="right_img_container" :style="styleVariables" src="~@/static/tyedie.jpg"></img>
+              <img class="right_img_container4" :style="styleVariables" src="~@/static/wood1.jpg"></img>
+              <img class="right_img_container5" :style="styleVariables" src="~@/static/iphone1.jpg"></img>
             </div>
           </div>
         </div>
