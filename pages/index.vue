@@ -12,6 +12,7 @@
     <section>
       <div class="title_container">
         <h1 class="title_txt">カテゴリ</h1>
+        <button>Login</button>
       </div>
       <div class="section_container">
 
