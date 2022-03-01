@@ -74,15 +74,15 @@ export default {
     redirect: {
       login: '/',  // 未ログイン時のリダイレクト先
       logout: '/',  // ログアウト処理を実行した直後のリダイレクト先
-      callback: '/',  // コールバックURL（各プロバイダで設定したものと同じPathにする）
+      callback: '/index',  // コールバックURL（各プロバイダで設定したものと同じPathにする）
       home: '/succeed',  // ログイン後に遷移するページ
     },
     strategies: {
       colorme: {
         client_id: "3206fb3506571dc4a400dab19b8319b5ce1fdb5f1bf069e5a943a521d60a6462",
         client_secret: "2a52dff122e7ead048d0ff87b4687123163985ce6ba0706bd2e7e8f4fedfc3b2",
-        // code: "a99755df020d16d4b1fea8e9e2ce0eb724663aaf119dcc42618b6e37f1a2876c",
-        // grant_type: 'authorization_code',
+        code: "a99755df020d16d4b1fea8e9e2ce0eb724663aaf119dcc42618b6e37f1a2876c",
+        grant_type: 'authorization_code',
         // redirect_uri: 'https://dubryu.github.io/gypsyworks/',
         scope: ['read_products'],
       },
