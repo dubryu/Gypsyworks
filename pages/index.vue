@@ -12,7 +12,7 @@
     <section>
       <div class="title_container">
         <h1 class="title_txt">カテゴリ</h1>
-        <button>Login</button>
+        <button v-on:click="authenticate">Login</button>
       </div>
       <div class="section_container">
 
@@ -182,7 +182,10 @@ export default {
     moveCat1 (ev) {
       // クリックされたX座標までスライドする
       this.$refs.cat1.moveTo(ev.offsetX, ev.offsetY)
-    }
+    },
+    authenticate() {
+      this.$auth.loginWith('colorme');
+    },
   }
 }
 </script>
