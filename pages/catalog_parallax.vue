@@ -8,7 +8,7 @@
         </div>
         <div ref="tri1" class="main_container">
           <div class="left_split">
-            <h2 v-rellax="{ speed:2 }" class="main_title">手ぬぐい</h2>
+            <h2 v-rellax="{ speed:2 }" class="main_title">手ぬぐいい</h2>
             <div ref="tri2" class="left_spacer">{{ msg }}</div>
             <span>{{ scrollY }}</span>
             <div v-observe-visibility="visibility1Changed" class="left_trigger">trigger</div>
