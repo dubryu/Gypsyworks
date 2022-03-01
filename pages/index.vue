@@ -12,7 +12,7 @@
     <section>
       <div class="title_container">
         <h1 class="title_txt">カテゴリ</h1>
-        <button v-on:click="authenticate">Login</button>
+        <button v-on:click="authenticate">get USER</button>
       </div>
       <div class="section_container">
 
@@ -184,7 +184,8 @@ export default {
       this.$refs.cat1.moveTo(ev.offsetX, ev.offsetY)
     },
     authenticate() {
-      this.$auth.loginWith('colorme');
+      console.log("ユーザーデータ：", this.$auth.user);
+      // this.$auth.loginWith('colorme');
     },
   }
 }
