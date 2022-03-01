@@ -79,11 +79,12 @@ export default {
     },
     strategies: {
       colorme: {
-        client_id: "67ddc82aff285242fffc1d32ae3d0763f70d2e1fb10895145616c1a93b0f827a",
-        client_secret: "138223b16afd1d0bade7c1d50a99ccb541d62e6c6ca80cc1a4f96220a071ec60",
-        code: "a99755df020d16d4b1fea8e9e2ce0eb724663aaf119dcc42618b6e37f1a2876c",
-        grant_type: 'authorization_code',
+        client_id: "3206fb3506571dc4a400dab19b8319b5ce1fdb5f1bf069e5a943a521d60a6462",
+        client_secret: "2a52dff122e7ead048d0ff87b4687123163985ce6ba0706bd2e7e8f4fedfc3b2",
+        // code: "a99755df020d16d4b1fea8e9e2ce0eb724663aaf119dcc42618b6e37f1a2876c",
+        // grant_type: 'authorization_code',
         // redirect_uri: 'https://dubryu.github.io/gypsyworks/',
+        scope: ['read_products'],
       },
     },
   },
