@@ -1,6 +1,7 @@
 
 export default {
-  mode: 'spa',  // auth-module は SSR に使用できない
+  ssr: false,
+  // mode: 'spa',  // auth-module は SSR に使用できない ->deprecated
   router: {
     base: '/gypsyworks/'
   },
@@ -79,12 +80,12 @@ export default {
     },
     strategies: {
       colorme: {
-        client_id: 'cf1b5a845474eb77cef50e84089c962d7e7da35817d9add4c9e658966c7fad54',
-        client_secret: 'fb2b45126fb414ad63f7eebc253a142a509a796cdf8adad056b08cd0cd43b7b5',
-        code: 'f2daf4ad9b7bcfdbd9f6b0eceff550be280c8e63174e5a5e9817dee6fca5f530',
-        grant_type: 'authorization_code',
+        // client_id: 'cf1b5a845474eb77cef50e84089c962d7e7da35817d9add4c9e658966c7fad54',
+        // client_secret: 'fb2b45126fb414ad63f7eebc253a142a509a796cdf8adad056b08cd0cd43b7b5',
+        // code: 'f2daf4ad9b7bcfdbd9f6b0eceff550be280c8e63174e5a5e9817dee6fca5f530',
+        // grant_type: 'authorization_code',
         // redirect_uri: 'https://dubryu.github.io/gypsyworks/',
-        scope: ['read_products'],
+        // scope: ['read_products'],
       },
     },
   },
