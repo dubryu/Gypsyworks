@@ -13,6 +13,7 @@
       <div class="title_container">
         <h1 class="title_txt">カテゴリ</h1>
         <button v-on:click="authenticate">get USER</button>
+        <li v-for="user in users" :key="user">{{ user.name }}</li>
       </div>
       <div class="section_container">
 
@@ -171,12 +172,52 @@
 </template>
 
 <script>
+import axios from 'axios'
 import BoxCat1 from '../components/common/BoxCat1'
 import '../assets/scss/style.scss'
+
 export default {
   name: 'App',
   components: {
     BoxCat1
+  },
+  data () {
+    return {
+      loginForm: {
+        email: '',
+        password: '',
+      },
+      users: [],
+    }
+  },
+  mounted() {
+    // axiosのこれが基本系
+    axios.get('https://jsonplaceholder.typicode.com/users')
+            .then(response => {this.users = response.data; console.log("sucex:::", this.users)})
+            .catch(error => console.log(error))
+    // フィルターをかける場合は以下
+    // axios.get('https://jsonplaceholder.typicode.com/users', { params: {
+    //     name: 'Leanne Graham' }})
+    //         .then(response => {this.users = response.data; console.log("sucex:::", this.users)})
+    //         .catch(error => console.log(error))
+
+    // post
+    axios.post('https://api.shop-pro.jp',
+    {
+        params: {
+          client_id: 'cf1b5a845474eb77cef50e84089c962d7e7da35817d9add4c9e658966c7fad54',
+          client_secret: 'fb2b45126fb414ad63f7eebc253a142a509a796cdf8adad056b08cd0cd43b7b5',
+          code: this.$route.query.code,
+          grant_type: 'authorization_code',
+          redirect_uri: 'https://dubryu.github.io/gypsyworks/'
+        }
+    })
+        .then(function (response) {
+            console.log(response)
+        })
+        .catch(error => console.log(error))
+        
+    // this.postData()
   },
   methods: {
     moveCat1 (ev) {
@@ -187,6 +228,54 @@ export default {
       console.log("ユーザーデータ：", this.$auth.user);
       // this.$auth.loginWith('colorme');
     },
+    async loginSubmit (session) {
+      await this.$store.dispatch('auth/login', {
+        email: this.loginForm.email,
+        password: this.loginForm.password,
+      })
+      // $store.dispatch('auth/login', { this.loginForm.email, this.loginForm.password })
+    },
+    async postData() {
+      const params = {
+        client_id: '0001',
+        client_secret: 'Taro',
+        code: this.$route.query.code,
+        grant_type: 'authorization_code',
+        redirect_uri: 'https://dubryu.github.io/gypsyworks/'
+      }
+      const res = await this.$axios.post('https://api.shop-pro.jp', params).then(response => {
+        console.log(response.data);
+        console.log('res is:::::::::::::', res);
+      }).catch(err => {
+        return err.response
+      })
+    },
+    // async postData() {
+    //   const token = 'xxxxxxxxxxxxxx'
+    //   const params = {
+    //     client_id: 'cf1b5a845474eb77cef50e84089c962d7e7da35817d9add4c9e658966c7fad54',
+    //     client_secret: 'fb2b45126fb414ad63f7eebc253a142a509a796cdf8adad056b08cd0cd43b7b5',
+    //     code: this.$route.query.code,
+    //     grant_type: 'authorization_code',
+    //     redirect_uri: 'https://dubryu.github.io/gypsyworks/'
+    //   }
+    //   const res = await this.$axios.post('https://api.shop-pro.jp', params, {
+    //     headers: {
+    //       Authorization: `Bearer ${token}`
+    //     }
+    //   })
+    //   .then(response => {
+    //     console.log(response.data);
+    //     console.log('res is:::::::::::::', res);
+    //   })
+    //   .catch(err => {
+    //     console.log('error in axios is:::::::::::::');
+    //     return err.response
+    //   })
+    //    .finally(_ => {
+    //      console.log('FINAALYYYYYYYYYYYYYYYYYYYY');
+    //    });
+    // }
   }
 }
 </script>
