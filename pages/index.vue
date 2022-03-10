@@ -188,13 +188,29 @@ export default {
         password: '',
       },
       users: [],
+      state: {
+        accessToken: '',
+        refreshToken: '',
+        loggedInUser: {},
+        isAuthenticated: false,
+      }
     }
+  },
+  mutations: {
+    setAccessToken (state, accessToken) {
+        state.accessToken = accessToken;
+    },
+    // accessTokenをセットする
+    setRefreshToken (state, refreshToken) {
+        state.refreshToken = refreshToken;
+    },
+    // refreshTokenをセットする
   },
   mounted() {
     // axiosのこれが基本系
-    axios.get('https://jsonplaceholder.typicode.com/users')
-            .then(response => {this.users = response.data; console.log("sucex:::", this.users)})
-            .catch(error => console.log(error))
+    // axios.get('https://jsonplaceholder.typicode.com/users')
+    //         .then(response => {this.users = response.data; console.log("sucex:::", this.users)})
+    //         .catch(error => console.log(error))
     // フィルターをかける場合は以下
     // axios.get('https://jsonplaceholder.typicode.com/users', { params: {
     //     name: 'Leanne Graham' }})
@@ -212,11 +228,16 @@ export default {
           redirect_uri: 'https://dubryu.github.io/gypsyworks/'
         }
     })
-        .then(function (response) {
-            console.log(response)
+        .then(response => {
+            console.log("response isssssssssssssssssssssssssss");
+            console.log(response);
+            this.store.commit('setAccessToken', response.data.access);
+            this.store.commit('setRefreshToken', response.data.refresh);
         })
-        .catch(error => console.log(error))
-        
+        .catch(error => {
+          console.log(error)
+        })
+
     // this.postData()
   },
   methods: {
