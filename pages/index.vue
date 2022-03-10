@@ -221,8 +221,8 @@ export default {
     axios.post('https://api.shop-pro.jp',
     {
         params: {
-          client_id: 'cf1b5a845474eb77cef50e84089c962d7e7da35817d9add4c9e658966c7fad54',
-          client_secret: 'fb2b45126fb414ad63f7eebc253a142a509a796cdf8adad056b08cd0cd43b7b5',
+          client_id: 'a198b03530b63518a6432b91cae76f92d0f2541d70b6bc77b7cbe127034a9133',
+          client_secret: 'e8f297e85799e9246e27219cb054b30a821f8a89b061aa6725ef9467c9419b3a',
           code: this.$route.query.code,
           grant_type: 'authorization_code',
           redirect_uri: 'https://dubryu.github.io/gypsyworks/'
