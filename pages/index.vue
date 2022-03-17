@@ -255,7 +255,7 @@ export default {
             client_secret: '964c63d6acbd314ad398c30b39f19f3b41524bf98e6976f49f2fb5cc1a547ae5',
             code: this.$route.query.code,
             grant_type: 'authorization_code',
-            redirect_uri: 'urn:ietf:wg:oauth:2.0:oob'
+            redirect_uri: 'https://dubryu.github.io/gypsyworks/'
           }
       })
           .then(response => {
