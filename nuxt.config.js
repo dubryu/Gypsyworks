@@ -91,7 +91,7 @@ export default {
     },
   },
   // firebaseにホスティング
-  generate: {
-    dir: 'public'
-  }
+  // generate: {
+  //   dir: 'public'
+  // }
 }
