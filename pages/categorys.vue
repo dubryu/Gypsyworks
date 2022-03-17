@@ -1,5 +1,6 @@
 <template>
   <main>
+    <button v-on:click="authenticate">get USER</button>
     <div id='collection-component-1640798152613'></div>
     <script type="text/javascript">
     /*<![CDATA[*/
@@ -105,3 +106,39 @@
     </script>
   </main>
 </template>
+<script>
+
+import axios from 'axios'
+export default {
+  methods: {
+    moveCat1 (ev) {
+      // クリックされたX座標までスライドする
+      this.$refs.cat1.moveTo(ev.offsetX, ev.offsetY)
+    },
+    authenticate() {
+      console.log("authenticate");
+      axios.post('https://api.shop-pro.jp',
+      {
+          params: {
+            client_id: 'df217f34f6b744b413eab6e5e8749d5fb03d7eea16c417a31477f4a02d6e86fc',
+            client_secret: 'edbc31535e275c074ddf4575e6b62d0200c6b1b2d5591441ef2f6b1efdd01a1e',
+            code: this.$route.query.code,
+            grant_type: 'authorization_code',
+            redirect_uri: 'https://dubryu.github.io/gypsyworks/categorys'
+          }
+      })
+          .then(response => {
+              console.log("response isssssssssssssssssssssssssss");
+              console.log(response);
+              // this.store.commit('setAccessToken', response.data.access);
+              // this.store.commit('setRefreshToken', response.data.refresh);
+          })
+          .catch(error => {
+            console.log(error)
+          })
+
+    },
+  }
+}
+}
+</script>
