@@ -111,10 +111,6 @@
 import axios from 'axios'
 export default {
   methods: {
-    moveCat1 (ev) {
-      // クリックされたX座標までスライドする
-      this.$refs.cat1.moveTo(ev.offsetX, ev.offsetY)
-    },
     authenticate() {
       console.log("authenticate");
       axios.post('https://api.shop-pro.jp',
