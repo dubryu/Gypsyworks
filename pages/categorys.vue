@@ -1,6 +1,6 @@
 <template>
   <main>
-    <button v-on:click="authenticate">get USER</button>
+    
     <div id='collection-component-1640798152613'></div>
     <script type="text/javascript">
     /*<![CDATA[*/
@@ -106,6 +106,7 @@
     </script>
   </main>
 </template>
+<!--
 <script>
 
 import axios from 'axios'
@@ -137,4 +138,4 @@ export default {
   }
 }
 
-</script>
+</script> -->
