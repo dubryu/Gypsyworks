@@ -208,9 +208,9 @@ export default {
   },
   mounted() {
     // axiosのこれが基本系
-    // axios.get('https://jsonplaceholder.typicode.com/users')
-    //         .then(response => {this.users = response.data; console.log("sucex:::", this.users)})
-    //         .catch(error => console.log(error))
+    axios.get('https://jsonplaceholder.typicode.com/users')
+            .then(response => {this.users = response.data; console.log("sucex:::", this.users); console.log("route:::", this.$route.query.code);})
+            .catch(error => console.log(error))
     // フィルターをかける場合は以下
     // axios.get('https://jsonplaceholder.typicode.com/users', { params: {
     //     name: 'Leanne Graham' }})
@@ -218,25 +218,25 @@ export default {
     //         .catch(error => console.log(error))
 
     // post
-    axios.post('https://api.shop-pro.jp',
-    {
-        params: {
-          client_id: 'a198b03530b63518a6432b91cae76f92d0f2541d70b6bc77b7cbe127034a9133',
-          client_secret: 'e8f297e85799e9246e27219cb054b30a821f8a89b061aa6725ef9467c9419b3a',
-          code: this.$route.query.code,
-          grant_type: 'authorization_code',
-          redirect_uri: 'https://dubryu.github.io/gypsyworks/'
-        }
-    })
-        .then(response => {
-            console.log("response isssssssssssssssssssssssssss");
-            console.log(response);
-            this.store.commit('setAccessToken', response.data.access);
-            this.store.commit('setRefreshToken', response.data.refresh);
-        })
-        .catch(error => {
-          console.log(error)
-        })
+    // axios.post('https://api.shop-pro.jp',
+    // {
+    //     params: {
+    //       client_id: 'a198b03530b63518a6432b91cae76f92d0f2541d70b6bc77b7cbe127034a9133',
+    //       client_secret: 'e8f297e85799e9246e27219cb054b30a821f8a89b061aa6725ef9467c9419b3a',
+    //       code: this.$route.query.code,
+    //       grant_type: 'authorization_code',
+    //       redirect_uri: 'https://dubryu.github.io/gypsyworks/'
+    //     }
+    // })
+    //     .then(response => {
+    //         console.log("response isssssssssssssssssssssssssss");
+    //         console.log(response);
+    //         this.store.commit('setAccessToken', response.data.access);
+    //         this.store.commit('setRefreshToken', response.data.refresh);
+    //     })
+    //     .catch(error => {
+    //       console.log(error)
+    //     })
 
     // this.postData()
   },
@@ -246,8 +246,28 @@ export default {
       this.$refs.cat1.moveTo(ev.offsetX, ev.offsetY)
     },
     authenticate() {
-      console.log("ユーザーデータ：", this.$auth.user);
+      console.log("authenticate");
       // this.$auth.loginWith('colorme');
+      axios.post('https://api.shop-pro.jp',
+      {
+          params: {
+            client_id: 'a90532a7972a0026708a2f93aeacf824566b66bf79faa257184ae8733853940d',
+            client_secret: '964c63d6acbd314ad398c30b39f19f3b41524bf98e6976f49f2fb5cc1a547ae5',
+            code: this.$route.query.code,
+            grant_type: 'authorization_code',
+            redirect_uri: 'urn:ietf:wg:oauth:2.0:oob'
+          }
+      })
+          .then(response => {
+              console.log("response isssssssssssssssssssssssssss");
+              console.log(response);
+              this.store.commit('setAccessToken', response.data.access);
+              this.store.commit('setRefreshToken', response.data.refresh);
+          })
+          .catch(error => {
+            console.log(error)
+          })
+
     },
     async loginSubmit (session) {
       await this.$store.dispatch('auth/login', {
