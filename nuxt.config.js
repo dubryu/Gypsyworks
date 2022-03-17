@@ -53,6 +53,7 @@ export default {
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
     '@nuxtjs/auth',
+    '@nuxtjs/dotenv',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -89,7 +90,8 @@ export default {
       },
     },
   },
-  // generate: {
-  //   dir: 'docs'
-  // }
+  // firebaseにホスティング
+  generate: {
+    dir: 'public'
+  }
 }
