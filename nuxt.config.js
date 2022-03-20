@@ -1,7 +1,7 @@
 
 export default {
   // ssr: false,
-  ssr: true,
+  // ssr: true,
   // mode: 'universal',
   // mode: 'spa',  // auth-module は SSR に使用できない ->deprecated
   router: {
@@ -24,8 +24,8 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/project_name/favicon.ico' },
-      { href: '~/assets/scss/common.scss', rel: 'stylesheet' },
-      { href: '~/assets/scss/style.scss', rel: 'stylesheet' },
+      { href: '/assets/scss/common.scss', rel: 'stylesheet' },
+      { href: '/assets/scss/style.scss', rel: 'stylesheet' },
     ]
   },
 
