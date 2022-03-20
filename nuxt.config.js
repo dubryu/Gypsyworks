@@ -1,6 +1,8 @@
 
 export default {
-  ssr: false,
+  // ssr: false,
+  ssr: true,
+  // mode: 'universal',
   // mode: 'spa',  // auth-module は SSR に使用できない ->deprecated
   router: {
     base: '/gypsyworks/'
@@ -21,7 +23,9 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/project_name/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/project_name/favicon.ico' },
+      { href: '~/assets/scss/common.scss', rel: 'stylesheet' },
+      { href: '~/assets/scss/style.scss', rel: 'stylesheet' },
     ]
   },
 
@@ -71,14 +75,14 @@ export default {
       babelrc: false,
       compact: false
     },
-    filenames: {
-     app: ({ isDev }) => isDev ? '[name].js' : '[chunkhash].js',
-     chunk: ({ isDev }) => isDev ? '[name].js' : '[chunkhash].js',
-     css: ({ isDev }) => isDev ? '[name].css' : '[contenthash].css',
-     img: ({ isDev }) => isDev ? '[path][name].[ext]' : 'img/[hash:7].[ext]',
-     font: ({ isDev }) => isDev ? '[path][name].[ext]' : 'fonts/[hash:7].[ext]',
-     video: ({ isDev }) => isDev ? '[path][name].[ext]' : 'videos/[hash:7].[ext]'
-   }
+   //  filenames: {
+   //   app: ({ isDev }) => isDev ? '[name].js' : '[chunkhash].js',
+   //   chunk: ({ isDev }) => isDev ? '[name].js' : '[chunkhash].js',
+   //   css: ({ isDev }) => isDev ? '[name].css' : '[contenthash].css',
+   //   img: ({ isDev }) => isDev ? '[path][name].[ext]' : 'img/[hash:7].[ext]',
+   //   font: ({ isDev }) => isDev ? '[path][name].[ext]' : 'fonts/[hash:7].[ext]',
+   //   video: ({ isDev }) => isDev ? '[path][name].[ext]' : 'videos/[hash:7].[ext]'
+   // }
   },
   auth: {
     redirect: {
@@ -99,7 +103,7 @@ export default {
     },
   },
   // firebaseにホスティング
-  // generate: {
-  //   dir: 'public'
-  // }
+  generate: {
+    dir: 'dist'
+  }
 }
