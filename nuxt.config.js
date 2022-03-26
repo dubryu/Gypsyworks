@@ -1,15 +1,16 @@
 
 export default {
+  // ssg
   ssr: false,
+  target: 'static',
+  // ssr
   // ssr: true,
-  // mode: 'universal',
-  // mode: 'spa',  // auth-module は SSR に使用できない ->modeはdeprecated
+  // spa
+  // ssr: false,
+  // target: 'server',
   router: {
     base: '/gypsyworks/'
   },
-  // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
-  // target: 'node'
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'gypsyworks',

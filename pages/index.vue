@@ -9,7 +9,7 @@
         <img class="snsimg" src="../static/Twitter_blue.png"></img>
       </div>
     </section>
-    <section>
+    <!-- <section>
       <div class="title_container">
         <h1 class="title_txt">カテゴリ</h1>
         <button v-on:click="authenticate">get USER</button>
@@ -22,27 +22,19 @@
           <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
           <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
           <div class="photo_bg">
-            <!-- <iframe frameborder="0" height="220" width="160" src="https://mrbicycle.base.ec/items/15896127/widget/small" ></iframe> -->
-            <!-- <img class="photo_item"></img>
-            <img class="photo_item"></img>
-            <img class="photo_item"></img>
-            <img class="photo_item"></img>
-            <img class="photo_item"></img>
-            <img class="photo_item"></img>
-            <img class="photo_item"></img>
-            <img class="photo_item"></img>
-            <img class="photo_item"></img> -->
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <section>
       <div class="title_container">
-        <h1 class="title_txt">CATEGORYS</h1>
+        <h1 class="title_txt">カテゴリ</h1>
       </div>
       <div class="section_container">
         <div class="centerize_container">
-          <div class="catalog_item"></div>
+          <div class="catalog_item">
+            <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
+          </div>
           <div class="catalog_item"></div>
           <div class="catalog_item"></div>
         </div>
@@ -375,6 +367,7 @@ export default {
     .centerize_container{
       // width: 100%;
       // height: 100%;
+      display: flex;
       background-color: rgb(50, 100, 150);
       .photo_bg{
         display: flex;
