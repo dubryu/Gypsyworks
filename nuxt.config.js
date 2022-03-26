@@ -3,7 +3,7 @@ export default {
   ssr: false,
   // ssr: true,
   // mode: 'universal',
-  // mode: 'spa',  // auth-module は SSR に使用できない ->deprecated
+  // mode: 'spa',  // auth-module は SSR に使用できない ->modeはdeprecated
   router: {
     base: '/gypsyworks/'
   },
@@ -23,7 +23,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/project_name/favicon.ico' },
+      // { rel: 'icon', type: 'image/x-icon', href: '/gypsyworks/favicon.ico' },
       // { href: '/assets/scss/common.scss', rel: 'stylesheet' },
       // { href: '/assets/scss/style.scss', rel: 'stylesheet' },
     ]
@@ -32,6 +32,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     { src: '~/assets/scss/common.scss' },
+    { src: '~/assets/scss/style.scss' },
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
