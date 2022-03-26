@@ -30,15 +30,17 @@
       <div class="title_container">
         <h1 class="title_txt">カテゴリ</h1>
       </div>
-      <div class="section_container">
-        <div class="centerize_container">
-          <div class="catalog_item">
-            <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
-          </div>
-          <div class="catalog_item"></div>
-          <div class="catalog_item"></div>
+
+      <div class="centerize_container">
+        <div class="photo_bg">
+          <div class="photo_item"></div>
+          <div class="photo_caption"></div>
+          <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
         </div>
+        <div class="photo_bg"></div>
+        <div class="photo_bg"></div>
       </div>
+
     </section>
     <section>
       <!-- <div id="app"> -->
@@ -361,39 +363,40 @@ export default {
     font-size: 40px;
     color: rgb(100, 150, 100);
   }
-  .section_container{
-    // width: 100vw;
-    // height: 100vh;
-    .centerize_container{
-      // width: 100%;
-      // height: 100%;
-      display: flex;
-      background-color: rgb(50, 100, 150);
-      .photo_bg{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        background-color: rgb(0, 255, 0);
-        .storesjp-button{
-          width: 16vw;
-          height: 16vw;
-          margin: 10px;
-        }
-        .photo_item{
-          width: 16vw;
-          height: 16vw;
-          margin: 0px;
-          background-color: rgb(100, 0, 0);
-        }
-      }
-      .catalog_item{
-        width: 18vw;
-        height: 60vh;
-        margin: 10px;
+
+  .centerize_container{
+    display: flex;
+    background-color: rgb(50, 100, 150);
+
+    .photo_bg{
+      width: 18vw;
+      height: 45vh;
+      margin: 10px;
+      background-color: rgb(100, 44,44);
+      display: block;
+      // justify-content: center;
+      .photo_item{
+        width: 16vw;
+        height: 16vw;
         background-color: rgb(0, 44,44);
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .photo_caption{
+        width: 100%;
+        height: 2vw;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgb(0, 100,44);
+      }
+      .storesjp-button{
+
       }
     }
   }
+
   .stage {
   position: relative;
   width: 100%;
