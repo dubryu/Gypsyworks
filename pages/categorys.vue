@@ -2,6 +2,7 @@
   <main>
 
     <div id='collection-component-1640798152613'></div>
+    <div id='background-sqr'></div>
     <script type="text/javascript">
     /*<![CDATA[*/
       // (function () {
@@ -106,6 +107,15 @@
     </script>
   </main>
 </template>
+
+<style scoped lang="scss">
+  .background-sqr{
+    height: 250vh;
+    width: 100vw;
+    background-color: rgb(200, 200, 0);
+    display: flex;
+  }
+</style>
 
 <script>
 
