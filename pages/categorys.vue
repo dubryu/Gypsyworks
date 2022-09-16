@@ -1,8 +1,8 @@
 <template>
   <main>
 
-    <div id='collection-component-1640798152613'></div>
-    <div id='background-sqr'>aaaa</div>
+    <!-- <div id='collection-component-1640798152613'></div>
+    <div id='background-sqr'>aaaa</div> -->
     <script type="text/javascript">
     /*<![CDATA[*/
       // (function () {
