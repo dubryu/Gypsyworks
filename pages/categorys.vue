@@ -108,14 +108,6 @@
   </main>
 </template>
 
-<style scoped lang="scss">
-  .background-sqr{
-    height: 250vh;
-    width: 100vw;
-    background-color: rgb(200, 200, 0);
-    display: flex;
-  }
-</style>
 <!--
 <script>
 import axios from 'axios'
