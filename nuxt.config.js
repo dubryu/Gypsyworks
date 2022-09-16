@@ -1,8 +1,8 @@
 
 export default {
   // ssg
-  ssr: false,
-  target: 'static',
+  ssr: true,
+  // target: 'static',
   // ssr
   // ssr: true,
   // spa

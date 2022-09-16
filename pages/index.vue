@@ -35,7 +35,9 @@
         <div class="photo_bg">
           <div class="photo_item"></div>
           <div class="photo_caption"></div>
+          <div class="stores_container">
           <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
+          </div>
         </div>
         <div class="photo_bg"></div>
         <div class="photo_bg"></div>
@@ -253,10 +255,10 @@ export default {
           }
       })
           .then(response => {
-              console.log("response isssssssssssssssssssssssssss");
-              console.log(response);
-              this.store.commit('setAccessToken', response.data.access);
-              this.store.commit('setRefreshToken', response.data.refresh);
+            console.log("response isssssssssssssssssssssssssss");
+            console.log(response);
+            this.store.commit('setAccessToken', response.data.access);
+            this.store.commit('setRefreshToken', response.data.refresh);
           })
           .catch(error => {
             console.log(error)
@@ -391,9 +393,14 @@ export default {
         margin-right: auto;
         background-color: rgb(0, 100,44);
       }
-      .storesjp-button{
-
+      .stores_container{
+        margin-left: auto;
+        margin-right: auto;
+        height: 44px;
+        // 子要素の大きさに合わせて幅可変
+        width: fit-content;
       }
+
     }
   }
 
