@@ -322,7 +322,7 @@ export default {
   #topback{
     width: 100%;
     height: 80vh;
-    background-color: rgb(100, 102, 200);
+    background-color: rgb(200, 102, 200);
     // display: flex; //flexは親に設定する
     // align-items: center;
     // justify-content: center;
