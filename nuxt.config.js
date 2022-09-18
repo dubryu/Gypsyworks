@@ -1,13 +1,21 @@
 
 export default {
-  // ssg
-  ssr: true,
+  // ssg = static site generation (full)
+  // ssr: true,
+  // target: 'static',
+  // ssg (half) ブラウザがindex.htmlを読み込んだ時に JS を実行して画面をレンダリングする（SPA）
+  // ssr: false,
   // target: 'static',
   // ssr
-  // ssr: true,
+  ssr: true,
+  target: 'server',
   // spa
   // ssr: false,
   // target: 'server',
+  server: {
+    port: 8080, // デフォルト: 3000
+    host: '0.0.0.0', // デフォルト: localhost
+  },
   router: {
     base: '/gypsyworks/'
   },
@@ -106,6 +114,6 @@ export default {
   },
   // firebaseにホスティング
   generate: {
-    dir: 'dist'
+    dir: 'public'
   }
 }
