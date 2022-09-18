@@ -114,6 +114,6 @@ export default {
   },
   // firebaseにホスティング
   generate: {
-    dir: 'public'
+    dir: 'dist'
   }
 }
