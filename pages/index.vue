@@ -236,7 +236,7 @@ export default {
     //     .catch(error => {
     //       console.log(error)
     //     })
-    if (process.env.access_token == ""){
+    if (process.env.access_token === ""){
       this.authenticate()
     }
 
