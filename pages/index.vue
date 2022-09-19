@@ -202,6 +202,9 @@ export default {
     },
     // refreshTokenをセットする
   },
+  created() {
+    console.log(process.env.TEST)
+  },
   mounted() {
     // axiosのこれが基本系
     axios.get('https://jsonplaceholder.typicode.com/users')
@@ -233,8 +236,10 @@ export default {
     //     .catch(error => {
     //       console.log(error)
     //     })
+    if (process.env.access_token == ''){
+      this.authenticate()
+    }
 
-    // this.postData()
   },
   methods: {
     moveCat1 (ev) {
@@ -244,23 +249,29 @@ export default {
     authenticate() {
       console.log("authenticate");
       // this.$auth.loginWith('colorme');
-      axios.post('https://api.shop-pro.jp',
+      axios.post('https://api.shop-pro.jp/oauth/token',
       {
           params: {
-            client_id: 'a90532a7972a0026708a2f93aeacf824566b66bf79faa257184ae8733853940d',
-            client_secret: '964c63d6acbd314ad398c30b39f19f3b41524bf98e6976f49f2fb5cc1a547ae5',
+            client_id: '564295b436f89bb7bad22863961482db4244af8adce6cc4df42230c860e94447',
+            client_secret: '854d4609864f38340f059b926c286e9f0de29fe6f95ed33ef80b0bd374f35e3e',
             code: this.$route.query.code,
             grant_type: 'authorization_code',
-            redirect_uri: 'https://dubryu.github.io/gypsyworks/'
+            redirect_uri: 'https://nuxt-2uqkjktgua-an.a.run.app/gypsyworks/'
           }
       })
           .then(response => {
-            console.log("response isssssssssssssssssssssssssss");
+            console.log("response isssssssssssssssssssssssssss" );
             console.log(response);
-            this.store.commit('setAccessToken', response.data.access);
-            this.store.commit('setRefreshToken', response.data.refresh);
+            console.log("access_token ");
+            console.log(response.data.access);
+            console.log("code is ");
+            console.log(this.$route.query.code);
+            process.env.access_token = response.data.access;
+            // this.store.commit('setAccessToken', response.data.access);
+            // this.store.commit('setRefreshToken', response.data.refresh);
           })
           .catch(error => {
+            console.log("eeerrrooorrr!!!!!!!!!!!!!");
             console.log(error)
           })
 

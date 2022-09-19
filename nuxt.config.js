@@ -110,7 +110,19 @@ export default {
         // redirect_uri: 'https://dubryu.github.io/gypsyworks/',
         // scope: ['read_products'],
       },
+      local: {
+        endpoints: {
+          login: { url: '/api/auth/login', method: 'post', propertyName: 'token' },
+          logout: { url: '/api/auth/logout', method: 'post' },
+          user: { url: '/api/auth/user', method: 'get', propertyName: 'user' }
+        },
+        // tokenRequired: true,
+        // tokenType: 'bearer'
+      }
     },
+  },
+  axios: {
+    baseURL: 'https://api.shop-pro.jp/oauth/',
   },
   // firebaseにホスティング
   generate: {
