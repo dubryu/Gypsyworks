@@ -206,6 +206,8 @@ export default {
     console.log(process.env.TEST)
   },
   mounted() {
+    console.log("kiiiiiiiincmo")
+    console.log(process.env.TEST)
     // axiosのこれが基本系
     axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {this.users = response.data; console.log("sucex:::", this.users); console.log("route:::", this.$route.query.code);})
