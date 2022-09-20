@@ -235,8 +235,8 @@ export default {
       axios.post('https://api.shop-pro.jp/oauth/token',
       {
           params: {
-            client_id: '564295b436f89bb7bad22863961482db4244af8adce6cc4df42230c860e94447',
-            client_secret: '854d4609864f38340f059b926c286e9f0de29fe6f95ed33ef80b0bd374f35e3e',
+            client_id: '4ddedc88f896b110991870ee31a9a69f3ebd306c7b225c10c7358a74273bff18',
+            client_secret: '5c9168863e470ac392496c7920d0619fcfa9f54e69b59252a9a66e290bfe4ac1',
             code: this.$route.query.code,
             grant_type: 'authorization_code',
             redirect_uri: 'https://nuxt-2uqkjktgua-an.a.run.app/gypsyworks/'
@@ -251,6 +251,7 @@ export default {
             console.log(this.$route.query.code);
 
             this.setAccessToken(response.data.access);
+
             this.accessToken = response.data.access;
             console.log("this.accessToken is  ");
             console.log(this.accessToken);
@@ -262,9 +263,10 @@ export default {
           })
 
     },
-    // ...mapActions('token', 'addToken'),
     setAccessToken(token) {
         this.$store.commit('token/addToken', token)
+        console.log("addToken has triggered!")
+        console.log(this.$store.state.token.access_token)
     },
   }
 }
