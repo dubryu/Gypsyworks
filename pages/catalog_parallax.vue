@@ -346,6 +346,7 @@ export default {
     }
   },
   computed: {
+    // 値がキャシュされる
     /**
      * このコンポーネント中で用いるCSS変数をまとめる.
      * @return {object}
