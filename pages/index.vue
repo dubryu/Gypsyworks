@@ -206,11 +206,14 @@ export default {
     console.log(process.env.TEST)
   },
   mounted() {
-    console.log("kiiiiiiiincmo")
+    if (process.env.access_token === "default"){
+      this.authenticate()
+    }
     console.log(process.env.TEST)
+    console.log("kiiiiiiiincmo")
     // axiosのこれが基本系
     axios.get('https://jsonplaceholder.typicode.com/users')
-            .then(response => {this.users = response.data; console.log("sucex:::", this.users); console.log("route:::", this.$route.query.code);})
+            .then(response => {this.users = response.data; console.log("sucex:::", this.users);})
             .catch(error => console.log(error))
     // フィルターをかける場合は以下
     // axios.get('https://jsonplaceholder.typicode.com/users', { params: {
@@ -238,9 +241,7 @@ export default {
     //     .catch(error => {
     //       console.log(error)
     //     })
-    if (process.env.access_token === ""){
-      this.authenticate()
-    }
+
 
   },
   methods: {
