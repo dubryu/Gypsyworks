@@ -169,9 +169,16 @@
 
 <script>
 import axios from 'axios'
-import BoxCat1 from '../components/common/BoxCat1'
 import '../assets/scss/style.scss'
-// import { mapActions } from 'vuex'
+//  firebase
+// import { initializeApp } from 'firebase/app'
+// import { getAuth } from "firebase/auth"
+import BoxCat1 from '../components/common/BoxCat1'
+
+// const firebaseConfig = {
+// }
+// const app = initializeApp(firebaseConfig)
+// const auth = getAuth(app)
 
 export default {
   name: 'App',
@@ -231,12 +238,14 @@ export default {
     },
     authenticate() {
       console.log("in authenticate")
+      console.log("code is ")
+      console.log(this.$route.query.code)
       // this.$auth.loginWith('colorme');
       axios.post('https://api.shop-pro.jp/oauth/token',
       {
           params: {
-            client_id: '4ddedc88f896b110991870ee31a9a69f3ebd306c7b225c10c7358a74273bff18',
-            client_secret: '5c9168863e470ac392496c7920d0619fcfa9f54e69b59252a9a66e290bfe4ac1',
+            client_id: '11dde3126269979313ef5a35b16b8d5c2812bb4cb29749ca61e0a3b6b06b7789',
+            client_secret: 'afc9280b4fd80dd1f5f796981c75a3a8614325d5926c94aab15311a175c9be80',
             code: this.$route.query.code,
             grant_type: 'authorization_code',
             redirect_uri: 'https://nuxt-2uqkjktgua-an.a.run.app/gypsyworks/'
@@ -255,7 +264,6 @@ export default {
             this.accessToken = response.data.access;
             console.log("this.accessToken is  ");
             console.log(this.accessToken);
-                        // process.env.access_token = response.data.access;
           })
           .catch(error => {
             console.log("eeerrrooorrr!!!!!!!!!!!!!");
