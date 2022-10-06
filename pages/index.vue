@@ -174,7 +174,6 @@ import '../assets/scss/style.scss'
 // import { initializeApp } from 'firebase/app'
 // import { getAuth } from "firebase/auth"
 import BoxCat1 from '../components/common/BoxCat1'
-import Storage from '@google-cloud/storage'
 // const firebaseConfig = {
 // }
 // const app = initializeApp(firebaseConfig)
