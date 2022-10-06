@@ -133,22 +133,19 @@ export default {
     }
   },
   mounted() {
-    getJson();
+    const {Storage} = require('@google-cloud/storage');
+    // const storage = new Storage();
+    const storage = new Storage({
+        projectId: "gypsyworks-5cf3e",
+        keyFilename: "../gypsyworks-5cf3e-477b1fe76321.json"
+      });
+    const bucket = storage.bucket('colorme-json-bucket');
+    const file = bucket.file('my-file');
+    file.download().then(function(data) {
+      console.log(data.toString('utf-8'));
+    });
   },
   methods: {
-   getJson () {
-      const {Storage} = require('@google-cloud/storage');
-      // const storage = new Storage();
-      const storage = new Storage({
-          projectId: "gypsyworks-5cf3e",
-          keyFilename: "../gypsyworks-5cf3e-477b1fe76321.json"
-        });
-      const bucket = storage.bucket('colorme-json-bucket');
-      const file = bucket.file('my-file');
-      file.download().then(function(data) {
-        console.log(data.toString('utf-8'));
-      });
-    }
   }
 }
 </script>
