@@ -133,28 +133,44 @@ export default {
     }
   },
   mounted() {
-    // import { initializeApp } from 'firebase/app';
-    //
-    // // TODO: Replace the following with your app's Firebase project configuration
-    // const firebaseConfig = {
-    //   //...
-    // };
-    //
-    // const app = initializeApp(firebaseConfig);
+    import { initializeApp } from 'firebase/app';
+    import { getStorage } from "firebase/storage";
+    // TODO: Replace the following with your app's Firebase project configuration
+    const firebaseConfig = {
+    // ...
+      storageBucket: 'gs://gypsyworks-5cf3e.appspot.com'
+    };
+      // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    // Initialize Cloud Storage and get a reference to the service
+    const storage = getStorage(app);
+    // Create a storage reference from our storage service
+    // const storageRef = ref(storage);
+    const myfileRef = ref(storage, 'my-file.json');
+    // URL経由でダウンロード
+    getDownloadURL(ref(storage, 'images/stars.jpg'))
+      .then((url) => {
+        // `url` is the download URL for 'images/stars.jpg'
 
+        console.log(url);
+      })
+      .catch((error) => {
+        // Handle any errors
+        console.log(error);
+      });
 
-
-    const {Storage} = require('@google-cloud/storage');
-    const storage = new Storage();
-    // const storage = new Storage({
-    //     projectId: "gypsyworks-5cf3e",
-    //     keyFilename: "../gypsyworks-5cf3e-477b1fe76321.json"
-    //   });
-    const bucket = storage.bucket('colorme-json-bucket');
-    const file = bucket.file('my-file');
-    file.download().then(function(data) {
-      console.log(data.toString('utf-8'));
-    });
+    // paused なぜかビルド不可
+    // const {Storage} = require('@google-cloud/storage');
+    // const storage = new Storage();
+    // // const storage = new Storage({
+    // //     projectId: "gypsyworks-5cf3e",
+    // //     keyFilename: "../gypsyworks-5cf3e-477b1fe76321.json"
+    // //   });
+    // const bucket = storage.bucket('colorme-json-bucket');
+    // const file = bucket.file('my-file');
+    // file.download().then(function(data) {
+    //   console.log(data.toString('utf-8'));
+    // });
   },
   methods: {
   }
