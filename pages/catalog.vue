@@ -133,17 +133,28 @@ export default {
     }
   },
   mounted() {
-    // const {Storage} = require('@google-cloud/storage');
-    // const storage = new Storage();
-    // // const storage = new Storage({
-    // //     projectId: "gypsyworks-5cf3e",
-    // //     keyFilename: "../gypsyworks-5cf3e-477b1fe76321.json"
-    // //   });
-    // const bucket = storage.bucket('colorme-json-bucket');
-    // const file = bucket.file('my-file');
-    // file.download().then(function(data) {
-    //   console.log(data.toString('utf-8'));
-    // });
+    // import { initializeApp } from 'firebase/app';
+    //
+    // // TODO: Replace the following with your app's Firebase project configuration
+    // const firebaseConfig = {
+    //   //...
+    // };
+    //
+    // const app = initializeApp(firebaseConfig);
+
+
+
+    const {Storage} = require('@google-cloud/storage');
+    const storage = new Storage();
+    // const storage = new Storage({
+    //     projectId: "gypsyworks-5cf3e",
+    //     keyFilename: "../gypsyworks-5cf3e-477b1fe76321.json"
+    //   });
+    const bucket = storage.bucket('colorme-json-bucket');
+    const file = bucket.file('my-file');
+    file.download().then(function(data) {
+      console.log(data.toString('utf-8'));
+    });
   },
   methods: {
   }
