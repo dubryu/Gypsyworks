@@ -133,11 +133,9 @@ export default {
     }
   },
   mounted() {
-    import { initializeApp } from 'firebase/app';
-    import { getStorage } from "firebase/storage";
-    // TODO: Replace the following with your app's Firebase project configuration
+    import { initializeApp } from 'firebase/app'
+    import { getStorage } from "firebase/storage"
     const firebaseConfig = {
-    // ...
       storageBucket: 'gs://gypsyworks-5cf3e.appspot.com'
     }
       // Initialize Firebase
