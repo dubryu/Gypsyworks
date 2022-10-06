@@ -174,7 +174,7 @@ import '../assets/scss/style.scss'
 // import { initializeApp } from 'firebase/app'
 // import { getAuth } from "firebase/auth"
 import BoxCat1 from '../components/common/BoxCat1'
-
+import Storage from '@google-cloud/storage'
 // const firebaseConfig = {
 // }
 // const app = initializeApp(firebaseConfig)
@@ -213,6 +213,7 @@ export default {
   },
   created() {
     // console.log(this.accessToken)
+
   },
   mounted() {
     if (this.$store.state.token.access_token === "c26d324daa74924ca3c621512a9619fdbfaaf012a183d2756105efd9a1cf02a7"){

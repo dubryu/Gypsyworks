@@ -136,7 +136,7 @@ export default {
     getJson();
   },
   methods: {
-    async function getJson () {
+     function getJson () {
       const {Storage} = require('@google-cloud/storage');
       // const storage = new Storage();
       const storage = new Storage({
