@@ -126,7 +126,7 @@
 
 <script>
 import { initializeApp } from 'firebase/app'
-import { getStorage } from "firebase/storage"
+import { getStorage, ref, getDownloadURL } from "firebase/storage"
 export default {
   components: {
   },
@@ -146,7 +146,7 @@ export default {
     // const storageRef = ref(storage);
     const myfileRef = ref(storage, 'my-file.json')
     // URL経由でダウンロード
-    getDownloadURL(ref(storage, 'images/stars.jpg'))
+    getDownloadURL(myfileRef)
       .then((url) => {
         // `url` is the download URL for 'images/stars.jpg'
 
