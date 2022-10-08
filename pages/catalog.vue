@@ -135,6 +135,7 @@ export default {
     }
   },
   mounted() {
+    console.log("get inside catalog mounted")
     const firebaseConfig = {
       storageBucket: 'gs://gypsyworks-5cf3e.appspot.com'
     }
