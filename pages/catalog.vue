@@ -37,9 +37,9 @@
         <h1 class="title_txt">How to order</h1>
       </div>
       <div class="page_container">
-        <instagram-embed
+        <!-- <instagram-embed
           :url="'https://www.instagram.com/p/Bs_yHwHBjKo/'"
-        />
+        /> -->
       </div>
     </section>
   </main>
