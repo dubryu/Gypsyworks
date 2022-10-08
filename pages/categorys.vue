@@ -123,35 +123,21 @@ export default {
     // Initialize Cloud Storage and get a reference to the service
     const storage = getStorage(app)
     // Create a storage reference from our storage service
-    // const storageRef = ref(storage);
-    const myfileRef = ref(storage, 'my-file111')
+    const myfileRef = ref(storage, 'my-file')
     // URL経由でダウンロード
     getDownloadURL(myfileRef)
       .then((url) => {
-        // `url` is the download URL for 'images/stars.jpg'
-
         console.log(url)
-
         fetch(url)
           .then(result => result.json())
             .then((output) => {
                 console.log('Output: ', output);
-
             }).catch(err => console.error(err));
       })
       .catch((error) => {
         console.log(error)
       })
-    // getBlob(myfileRef, 100000)
-    //   .then((url) => {
-    //     // `url` is the download URL for 'images/stars.jpg'
-    //
-    //     console.log(url)
-    //   })
-    //   .catch((error) => {
-    //     // Handle any errors
-    //     console.log(error)
-    //   })
+
   },
 
 }
