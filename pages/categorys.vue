@@ -124,7 +124,7 @@ export default {
     const storage = getStorage(app)
     // Create a storage reference from our storage service
     // const storageRef = ref(storage);
-    const myfileRef = ref(storage, 'my-file.json')
+    const myfileRef = ref(storage, 'my-file')
     // URL経由でダウンロード
     getDownloadURL(myfileRef)
       .then((url) => {
