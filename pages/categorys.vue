@@ -133,11 +133,11 @@ export default {
         console.log(url)
 
         fetch(url)
-            .then(result => result.json())
+          .then(result => result.json())
             .then((output) => {
                 console.log('Output: ', output);
 
-        }).catch(err => console.error(err));
+            }).catch(err => console.error(err));
       })
       .catch((error) => {
         // Handle any errors
