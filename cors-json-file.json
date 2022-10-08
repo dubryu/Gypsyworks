@@ -1,0 +1,6 @@
+[{
+"origin": ["https://nuxt-2uqkjktgua-an.a.run.app/"],
+"responseHeader": ["Content-Type"],
+"method": ["GET", "HEAD", "DELETE"],
+"maxAgeSeconds": 3600
+}]

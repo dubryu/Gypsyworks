@@ -111,7 +111,7 @@
 
 <script>
 import { initializeApp } from 'firebase/app'
-import { getStorage, ref, getDownloadURL } from "firebase/storage"
+import { getStorage, ref, getDownloadURL, getBlob } from "firebase/storage"
 export default {
   mounted() {
     console.log("get inside catalog mounted")
@@ -131,11 +131,28 @@ export default {
         // `url` is the download URL for 'images/stars.jpg'
 
         console.log(url)
+
+        fetch(url)
+            .then(result => result.json())
+            .then((output) => {
+                console.log('Output: ', output);
+
+        }).catch(err => console.error(err));
       })
       .catch((error) => {
         // Handle any errors
         console.log(error)
       })
+    // getBlob(myfileRef, 100000)
+    //   .then((url) => {
+    //     // `url` is the download URL for 'images/stars.jpg'
+    //
+    //     console.log(url)
+    //   })
+    //   .catch((error) => {
+    //     // Handle any errors
+    //     console.log(error)
+    //   })
   },
 
 }
