@@ -108,35 +108,36 @@
   </main>
 </template>
 
-<!--
-<script>
-import axios from 'axios'
-export default {
-  methods: {
-    authenticate() {
-      console.log("authenticate");
-      axios.post('https://api.shop-pro.jp',
-      {
-          params: {
-            client_id: '564295b436f89bb7bad22863961482db4244af8adce6cc4df42230c860e94447',
-            client_secret: '854d4609864f38340f059b926c286e9f0de29fe6f95ed33ef80b0bd374f35e3e',
-            code: this.$route.query.code,
-            grant_type: 'authorization_code',
-            redirect_uri: 'https://dubryu.github.io/gypsyworks/categorys'
-          }
-      })
-          .then(response => {
-              console.log("response isssssssssssssssssssssssssss");
-              console.log(response);
-              // this.store.commit('setAccessToken', response.data.access);
-              // this.store.commit('setRefreshToken', response.data.refresh);
-          })
-          .catch(error => {
-            console.log(error)
-          })
 
-    },
-  }
+<script>
+import { initializeApp } from 'firebase/app'
+import { getStorage, ref, getDownloadURL } from "firebase/storage"
+export default {
+  mounted() {
+    console.log("get inside catalog mounted")
+    const firebaseConfig = {
+      storageBucket: 'gs://gypsyworks-5cf3e.appspot.com'
+    }
+      // Initialize Firebase
+    const app = initializeApp(firebaseConfig)
+    // Initialize Cloud Storage and get a reference to the service
+    const storage = getStorage(app)
+    // Create a storage reference from our storage service
+    // const storageRef = ref(storage);
+    const myfileRef = ref(storage, 'my-file.json')
+    // URL経由でダウンロード
+    getDownloadURL(myfileRef)
+      .then((url) => {
+        // `url` is the download URL for 'images/stars.jpg'
+
+        console.log(url)
+      })
+      .catch((error) => {
+        // Handle any errors
+        console.log(error)
+      })
+  },
+
 }
 
-</script> -->
+</script>
