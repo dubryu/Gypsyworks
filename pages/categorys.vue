@@ -124,7 +124,7 @@ export default {
     const storage = getStorage(app)
     // Create a storage reference from our storage service
     // const storageRef = ref(storage);
-    const myfileRef = ref(storage, 'my-file')
+    const myfileRef = ref(storage, 'my-file111')
     // URL経由でダウンロード
     getDownloadURL(myfileRef)
       .then((url) => {
@@ -140,7 +140,6 @@ export default {
             }).catch(err => console.error(err));
       })
       .catch((error) => {
-        // Handle any errors
         console.log(error)
       })
     // getBlob(myfileRef, 100000)
