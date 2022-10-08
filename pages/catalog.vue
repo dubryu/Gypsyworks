@@ -133,29 +133,6 @@ export default {
     }
   },
   mounted() {
-    import { initializeApp } from 'firebase/app'
-    import { getStorage } from "firebase/storage"
-    const firebaseConfig = {
-      storageBucket: 'gs://gypsyworks-5cf3e.appspot.com'
-    }
-      // Initialize Firebase
-    const app = initializeApp(firebaseConfig)
-    // Initialize Cloud Storage and get a reference to the service
-    const storage = getStorage(app)
-    // Create a storage reference from our storage service
-    // const storageRef = ref(storage);
-    const myfileRef = ref(storage, 'my-file.json')
-    // URL経由でダウンロード
-    getDownloadURL(ref(storage, 'images/stars.jpg'))
-      .then((url) => {
-        // `url` is the download URL for 'images/stars.jpg'
-
-        console.log(url)
-      })
-      .catch((error) => {
-        // Handle any errors
-        console.log(error)
-      })
 
     // paused なぜかビルド不可
     // const {Storage} = require('@google-cloud/storage');
@@ -171,6 +148,32 @@ export default {
     // });
   },
   methods: {
+    getJson () {
+      import { initializeApp } from 'firebase/app'
+      import { getStorage } from "firebase/storage"
+      const firebaseConfig = {
+        storageBucket: 'gs://gypsyworks-5cf3e.appspot.com'
+      }
+        // Initialize Firebase
+      const app = initializeApp(firebaseConfig)
+      // Initialize Cloud Storage and get a reference to the service
+      const storage = getStorage(app)
+      // Create a storage reference from our storage service
+      // const storageRef = ref(storage);
+      const myfileRef = ref(storage, 'my-file.json')
+      // URL経由でダウンロード
+      getDownloadURL(ref(storage, 'images/stars.jpg'))
+        .then((url) => {
+          // `url` is the download URL for 'images/stars.jpg'
+
+          console.log(url)
+        })
+        .catch((error) => {
+          // Handle any errors
+          console.log(error)
+        })
+
+    }
   }
 }
 </script>
