@@ -111,7 +111,7 @@
 
 <script>
 import { initializeApp } from 'firebase/app'
-import { getStorage, ref, getDownloadURL, getBlob } from "firebase/storage"
+import { getStorage, ref, getDownloadURL } from "firebase/storage"
 export default {
   mounted() {
     console.log("get inside catalog mounted")
