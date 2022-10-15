@@ -137,7 +137,7 @@ export default {
           .then(result => result.json())
             .then((output) => {
               for(var i in output) {
-                products.push([i,output[i]]);
+                this.products.push([i,output[i]]);
               }
                 console.log('products: ', products);
             }).catch(err => console.error(err));
