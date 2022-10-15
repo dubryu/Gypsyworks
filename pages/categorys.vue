@@ -136,8 +136,13 @@ export default {
         fetch(url)
           .then(result => result.json())
             .then((output) => {
-              for(const i in output) {
-                this.products.push([i,output[i]]);
+              for(const i in output[0]["products"]) {
+                // for(const j in output[i]){
+                //   if(key==products){
+                //
+                //   }
+                // }
+                this.products.push([i,output[0]["products"][i]]);
               }
                 console.log('products: ', this.products);
             }).catch(err => console.error(err));
