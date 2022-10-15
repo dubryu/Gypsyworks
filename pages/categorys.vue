@@ -136,10 +136,10 @@ export default {
         fetch(url)
           .then(result => result.json())
             .then((output) => {
-              for(var i in output) {
+              for(const i in output) {
                 this.products.push([i,output[i]]);
               }
-                console.log('products: ', products);
+                console.log('products: ', this.products);
             }).catch(err => console.error(err));
       })
       .catch((error) => {
