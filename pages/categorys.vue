@@ -113,6 +113,11 @@
 import { initializeApp } from 'firebase/app'
 import { getStorage, ref, getDownloadURL } from "firebase/storage"
 export default {
+  data () {
+    return {
+      products: [] // サンプルとして適当なデータを宣言・定義しています
+    };
+  },
   mounted() {
     console.log("get inside catalog mounted")
     const firebaseConfig = {
@@ -131,7 +136,10 @@ export default {
         fetch(url)
           .then(result => result.json())
             .then((output) => {
-                console.log('Output: ', output);
+              for(var i in output) {
+                products.push([i,output[i]]);
+              }
+                console.log('products: ', products);
             }).catch(err => console.error(err));
       })
       .catch((error) => {

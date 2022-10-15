@@ -191,24 +191,10 @@ export default {
         password: '',
       },
       users: [],
-      accessToken: '',
-      // state: {
-      //   accessToken: '',
-      //   refreshToken: '',
-      //   loggedInUser: {},
-      //   isAuthenticated: false,
-      // }
+      accessToken: ''
     }
   },
   mutations: {
-    // setAccessToken (state, accessToken) {
-    //     state.accessToken = accessToken;
-    // },
-    // // accessTokenをセットする
-    // setRefreshToken (state, refreshToken) {
-    //     state.refreshToken = refreshToken;
-    // },
-    // // refreshTokenをセットする
   },
   created() {
     // console.log(this.accessToken)
@@ -236,46 +222,6 @@ export default {
       // クリックされたX座標までスライドする
       this.$refs.cat1.moveTo(ev.offsetX, ev.offsetY)
     },
-    // authenticate() {
-    //   console.log("in authenticate")
-    //   console.log("code is ")
-    //   console.log(this.$route.query.code)
-    //   // this.$auth.loginWith('colorme');
-    //   axios.post('https://api.shop-pro.jp/oauth/token',
-    //   {
-    //       params: {
-    //         client_id: '11dde3126269979313ef5a35b16b8d5c2812bb4cb29749ca61e0a3b6b06b7789',
-    //         client_secret: 'afc9280b4fd80dd1f5f796981c75a3a8614325d5926c94aab15311a175c9be80',
-    //         code: this.$route.query.code,
-    //         grant_type: 'authorization_code',
-    //         redirect_uri: 'https://nuxt-2uqkjktgua-an.a.run.app/gypsyworks/'
-    //       }
-    //   })
-    //       .then(response => {
-    //         console.log("response isssssssssssssssssssssssssss" );
-    //         console.log(response);
-    //         console.log("access_token ");
-    //         console.log(response.data.access);
-    //         console.log("code is ");
-    //         console.log(this.$route.query.code);
-    //
-    //         this.setAccessToken(response.data.access);
-    //
-    //         this.accessToken = response.data.access;
-    //         console.log("this.accessToken is  ");
-    //         console.log(this.accessToken);
-    //       })
-    //       .catch(error => {
-    //         console.log("eeerrrooorrr!!!!!!!!!!!!!");
-    //         console.log(error)
-    //       })
-    //
-    // },
-    // setAccessToken(token) {
-    //     this.$store.commit('token/addToken', token)
-    //     console.log("addToken has triggered!")
-    //     console.log(this.$store.state.token.access_token)
-    // },
     getProducts () {
       axios.get('https://api.shop-pro.jp/v1/products', {
         headers: {
