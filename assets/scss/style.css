@@ -2,3 +2,18 @@
   font-family: 'TF-HOTSU_L';
   src: url("~@/assets/fonts/hotsumaKakukaku.ttf") format("TrueType");
 }
+@font-face {
+  font-family: 'Oradano';
+  src: url("~@/assets/fonts/OradanoGSRR.ttf") format("opentype");
+}
+@font-face {　　
+    font-family: "めもわーる";
+    src: url("~@/assets/fonts/memoir.otf") format("opentype");
+}
+
+/* .body{
+  font-family: "Orandano";
+} */
+.p{
+  font-family: "Oradano";
+}

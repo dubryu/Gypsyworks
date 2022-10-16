@@ -1,16 +1,13 @@
 <template>
   <main>
-    <div class="centerize_container">
-      <div v-for="product in products" :key= "product.name" class="photo_bg">
-        <!-- <div class="photo_item"></div> -->
-        <img class="photo_item" :src="product.image_url">
-        <div class="photo_caption">
+    <div class="products_container">
+      <div v-for="product in products" :key= "product.name" class="product_bg">
+        <img class="product_photo" :src="product.image_url">
+        <div class="product_name"> <p>{{product.name}}<br>¥{{product.members_price_including_tax}}</p></div><br>
+        <div class="product_caption">
            <p>{{product.name}}</p>
         </div>
-        <div class="stores_container">
-        <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
-        </div>
-         <p>{{product.name}}</p>
+
       </div>
     </div>
 
@@ -95,7 +92,9 @@ export default {
 
 </script>
 <style scoped lang="scss">
-
+  .body{
+    font-family: "Oradano";
+  }
   #topback{
     width: 100%;
     height: 80vh;
@@ -143,34 +142,53 @@ export default {
     color: rgb(100, 150, 100);
   }
 
-  .centerize_container{
+  .products_container{
     display: flex;
-    background-color: rgb(50, 100, 150);
-
-    .photo_bg{
-      width: 18vw;
+    // background-color: rgb(50, 100, 150);
+    flex-wrap: wrap;
+    margin-top: 50px;
+    justify-content: space-around;
+    // font-family: "Oradano";
+    .product_bg{
+      width: 20vw;
       height: 45vh;
-      margin: 10px;
-      background-color: rgb(100, 44,44);
+      margin: 0px;
+      // background-color: rgb(100, 44,44);
       display: block;
       // justify-content: center;
-      .photo_item{
+      .product_photo{
         width: 16vw;
         height: 16vw;
+        position: relative;
+        left: 2vw;
         object-fit: cover;
-        background-color: rgb(0, 44,44);
         // background-image: url(https://img21.shop-pro.jp/PA01480/113/product/170941223.jpg?cmsp_timestamp=20221015160054);
         margin-top: 10px;
         margin-left: auto;
         margin-right: auto;
       }
-      .photo_caption{
+      .product_name{
         width: 100%;
         height: 2vw;
         margin-top: 10px;
         margin-left: auto;
         margin-right: auto;
-        background-color: rgb(0, 100,44);
+        // background-color: rgb(100, 0,44);
+        text-align: center;
+        .p{
+          font-family: "Oradano";
+          font-size: 20px;
+        }
+      }
+      .product_caption{
+        width: 100%;
+        height: 2vw;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        // background-color: rgb(0, 220,44);
+        text-align: center;
+        font-size: small;
       }
       .stores_container{
         margin-left: auto;
