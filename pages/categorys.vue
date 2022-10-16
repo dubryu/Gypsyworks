@@ -148,7 +148,6 @@ export default {
     flex-wrap: wrap;
     margin-top: 50px;
     justify-content: space-around;
-    // font-family: "Oradano";
     .product_bg{
       width: 20vw;
       height: 45vh;
@@ -177,7 +176,7 @@ export default {
         text-align: center;
         .p{
           font-family: "Oradano";
-          font-size: 20px;
+          font-size: 300px;
         }
       }
       .product_caption{
