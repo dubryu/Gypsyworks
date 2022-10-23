@@ -81,6 +81,7 @@ export default {
     //   }
     // }
     transpile: ['vue-intersect'],
+    transpile: ['gsap'],
     babel: {
       babelrc: false,
       compact: false
