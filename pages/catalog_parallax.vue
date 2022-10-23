@@ -1,7 +1,5 @@
 <template>
-
   <main>
-
       <section>
         <div class="title_container">
           <h1 class="title_txt">CATALOG</h1>
