@@ -173,57 +173,6 @@
     }
 
   }
-  .detail_container{
-    width: 60vw;
-    height: auto;
-    background-color: rgb(100, 150, 200);
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // flex-direction: column;
-    #img_container{
-      background-color: rgb(100, 150, 0);
-      height: 30vh;
-      width: 60vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      .detail_img{
-        margin: 10px;
-        height: 10vh;
-        width: 13vw;
-      }
-    }
-    #word_container{
-      height: 30vh;
-      width: 60vw;
-      background-color: rgb(200, 150, 0);
-      .paragraph{
-        background-color: #111;
-        //margin: 10px;
-      }
-    }
-  }
-  .swiper {
-    height: 300px;
-    width: 100%;
-    .swiper-slide {
-      text-align: center;
-      font-size: 38px;
-      font-weight: 700;
-      background-color: #eee;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .swiper-pagination {
-      > .swiper-pagination-bullet {
-        background-color: red;
-      }
-    }
-  }
-
 </style>
 
 <script>
@@ -237,7 +186,7 @@ if (process.client) {
 
 export default {
   // components: { Intersect },
-  name: 'SwiperNuxt',
+  name: 'Scrolls',
   props: {
     switchLength: {
       type: String,
