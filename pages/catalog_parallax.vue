@@ -152,46 +152,16 @@
       // （親要素のheightを超えたら、固定が解除される）
       // そのため、親要素にheightを指定しないと、そもそも有効になりません。
       .right_img_container{
-        // top: 0;
-        // left: 0;
-        // width: 100%;
-        // height:100vh;
-        // background-color: rgb(210, 30, 100);
-        // overflow: hidden;
-        // min-width: 100%;
-        // position: absolute;
         @include image_containerCSS;
       }
       .right_img_container2{
-        // top: 0;
-        // left: 0;
-        // width: 100%;
-        // height: 100%;
-        // background-color: rgb(210, 30, 100);
-        // overflow: hidden;
-        // min-width: 100%;
-        // max-height: 100%;
-        // object-fit: cover;
-        // object-position: top;
-        // position: absolute;
         @include image_containerCSS;
-        transform-origin: left top;
+        // transform-origin: left top;
         // clip-path 100%でimgが見えなくなるマスクの設定。適用範囲開始位置以下で100%, 適用終点以上で0%にすることでだんだん表示させる
         // 計算式：1 - ((スクロール量 - クリッピングマスク解除適用開始位置の座標) / 解除開始から終了までのスクロール幅) * 100%
         // clip-path: inset(0% 0% calc((1 - min((max(var(--scroll-Y), 0) - var(--clipStart-YIn1)) / var(--switch-Length), 1)) * 100%));
       }
       .right_img_container3{
-        // top: 0;
-        // left: 0;
-        // width: 100%;
-        // height: 100%;
-        // background-color: rgb(210, 30, 100);
-        // overflow: hidden;
-        // min-width: 100%;
-        // max-height: 100%;
-        // object-fit: cover;
-        // object-position: top;
-        // position: absolute;
         @include image_containerCSS;
       }
       .right_img_container4{
@@ -276,18 +246,12 @@ export default {
   },
   data () {
     return {
-      msg: 'I will change',
-      visible1: false,
-      visible2: false,
-      visible3: false,
-      visible4: false,
-      scrollAmount: 0,
+      msg: 'change point',
       scrollY: 0,
       clipStartYIn1: 0, // ざっくりと意図した範囲外で表示されないための初期値設定
       clipStartY2In1: 0,
       clipStartYIn2: 0,
       clipStartY2In2: 0,
-      degugScroll: 0,
     }
   },
   computed: {
