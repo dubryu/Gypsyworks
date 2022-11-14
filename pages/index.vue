@@ -142,8 +142,6 @@ export default {
     // margin-right: -300vw;
     overflow: hidden;
     // position: absolute;
-    position: relative;
-
     // width: auto;
     // height: auto;
     .column_container {
