@@ -1,189 +1,68 @@
 <template>
   <main>
-    <section id="topback">
-      <div id="toplogo">
-        <img class="logo_img" src="../static/Gypsyworks_logo_black.png"></img>
-      </div>
-      <div id="sns_container">
-        <img class="snsimg" src="../static/Instagram_logo.png"></img>
-        <img class="snsimg" src="../static/Twitter_blue.png"></img>
-      </div>
-    </section>
-    <!-- <section>
-      <div class="title_container">
-        <h1 class="title_txt">カテゴリ</h1>
-        <button v-on:click="authenticate">get USER</button>
-        <li v-for="user in users" :key="user">{{ user.name }}</li>
-      </div>
-      <div class="section_container">
-
-        <div class="centerize_container">
-          <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
-          <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
-          <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
-          <div class="photo_bg">
+    <div class="parent">
+      <div class="horizontalize">
+        <div class="column_container">
+          <div class="column column1">
+            <!-- <section id="topback"> -->
+              <div id="toplogo">
+                <img class="logo_img" src="../static/Gypsyworks_logo_black.png"></img>
+              </div>
+              <div id="sns_container">
+                <img class="snsimg" src="../static/Instagram_logo.png"></img>
+                <img class="snsimg" src="../static/Twitter_blue.png"></img>
+              </div>
+            <!-- </section> -->
+          </div>
+          <div class="column column2">
+            <!-- <section> -->
+              <!-- <div class="title_container">
+                <h1 class="title_txt">カテゴリ</h1>
+              </div> -->
+              <!-- <div class="centerize_container">
+                <div class="photo_bg">
+                  <div class="photo_item"></div>
+                  <div class="photo_caption"></div>
+                  <div class="stores_container">
+                  <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
+                  </div>
+                </div>
+                <div class="photo_bg"></div>
+                <div class="photo_bg"></div>
+              </div> -->
+            <!-- </section> -->
+          </div>
+          <div class="column column3">
+            <!-- <section>
+                <div class="stage" @click="moveCat1">
+                  <div class="note">クリックしたあたりまでスライドします</div>
+                  <BoxCat1 ref="cat1" />
+                </div>
+            </section> -->
           </div>
         </div>
       </div>
-    </section> -->
-    <section>
-      <div class="title_container">
-        <h1 class="title_txt">カテゴリ</h1>
-      </div>
-
-      <div class="centerize_container">
-        <div class="photo_bg">
-          <div class="photo_item"></div>
-          <div class="photo_caption"></div>
-          <div class="stores_container">
-          <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
-          </div>
-        </div>
-        <div class="photo_bg"></div>
-        <div class="photo_bg"></div>
-      </div>
-
-    </section>
-    <section>
-      <!-- <div id="app"> -->
-        <div class="stage" @click="moveCat1">
-          <div class="note">クリックしたあたりまでスライドします</div>
-          <BoxCat1 ref="cat1" />
-        </div>
-      <!-- </div> -->
-    </section>
-    <!-- <h1>Hello world!</h1>
-    <NuxtLink to="/fun">
-        fun (internal link that belongs to the Nuxt App)
-    </NuxtLink>
-    <NuxtLink to="/catalog">
-        about (internal link that belongs to the Nuxt App)
-    </NuxtLink> -->
-    <section>
-      <div id='collection-component-1640798152613'></div>
-      <script type="text/javascript">
-      /*<![CDATA[*/
-      (function () {
-        var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-        if (window.ShopifyBuy) {
-          if (window.ShopifyBuy.UI) {
-            ShopifyBuyInit();
-          } else {
-            loadScript();
-          }
-        } else {
-          loadScript();
-        }
-        function loadScript() {
-          var script = document.createElement('script');
-          script.async = true;
-          script.src = scriptURL;
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-          script.onload = ShopifyBuyInit;
-        }
-        function ShopifyBuyInit() {
-          var client = ShopifyBuy.buildClient({
-            domain: 'gypsyworks.myshopify.com',
-            storefrontAccessToken: '6b99c2bda6bc5033ae84e90b037b45d6',
-          });
-          ShopifyBuy.UI.onReady(client).then(function (ui) {
-            ui.createComponent('collection', {
-              id: '264384970795',
-              node: document.getElementById('collection-component-1640798152613'),
-              moneyFormat: '%C2%A5%7B%7Bamount_no_decimals%7D%7D',
-              options: {
-        "product": {
-          "styles": {
-            "product": {
-              "@media (min-width: 601px)": {
-                "max-width": "calc(25% - 20px)",
-                "margin-left": "20px",
-                "margin-bottom": "50px",
-                "width": "calc(25% - 20px)"
-              },
-              "img": {
-                "height": "calc(100% - 15px)",
-                "position": "absolute",
-                "left": "0",
-                "right": "0",
-                "top": "0"
-              },
-              "imgWrapper": {
-                "padding-top": "calc(75% + 15px)",
-                "position": "relative",
-                "height": "0"
-              }
-            }
-          },
-          "text": {
-            "button": "Add to cart"
-          }
-        },
-        "productSet": {
-          "styles": {
-            "products": {
-              "@media (min-width: 601px)": {
-                "margin-left": "-20px"
-              }
-            }
-          }
-        },
-        "modalProduct": {
-          "contents": {
-            "img": false,
-            "imgWithCarousel": true,
-            "button": false,
-            "buttonWithQuantity": true
-          },
-          "styles": {
-            "product": {
-              "@media (min-width: 601px)": {
-                "max-width": "100%",
-                "margin-left": "0px",
-                "margin-bottom": "0px"
-              }
-            }
-          },
-          "text": {
-            "button": "Add to cart"
-          }
-        },
-        "option": {},
-        "cart": {
-          "text": {
-            "total": "Subtotal",
-            "button": "Checkout"
-          }
-        },
-        "toggle": {}
-      },
-            });
-          });
-        }
-      })();
-      /*]]>*/
-      </script>
-    </section>
+    </div>
   </main>
 </template>
 
 <script>
 import axios from 'axios'
 import '../assets/scss/style.scss'
-//  firebase
-// import { initializeApp } from 'firebase/app'
-// import { getAuth } from "firebase/auth"
-import BoxCat1 from '../components/common/BoxCat1'
-// const firebaseConfig = {
-// }
-// const app = initializeApp(firebaseConfig)
-// const auth = getAuth(app)
+// gsap
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import BoxCat1 from '../components/common/BoxCat1'
+
+if (process.client) {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 export default {
   name: 'App',
-  components: {
-    BoxCat1
-  },
+  // components: {
+  //   BoxCat1
+  // },
   data () {
     return {
       loginForm: {
@@ -197,7 +76,6 @@ export default {
   mutations: {
   },
   created() {
-    // console.log(this.accessToken)
 
   },
   mounted() {
@@ -205,17 +83,33 @@ export default {
       console.log('in mounted')
       this.getProducts()
     }
+    window.addEventListener("load", function(){
 
-    // axiosのこれが基本系
-    axios.get('https://jsonplaceholder.typicode.com/users')
-            .then(response => {this.users = response.data; console.log("sucex:::", this.users);})
-            .catch(error => console.log(error))
-    // フィルターをかける場合は以下
-    // axios.get('https://jsonplaceholder.typicode.com/users', { params: {
-    //     name: 'Leanne Graham' }})
-    //         .then(response => {this.users = response.data; console.log("sucex:::", this.users)})
-    //         .catch(error => console.log(error))
+      // プラグインを定義 -> import直後へ移動
+      // gsap.registerPlugin(ScrollTrigger);
 
+      const parent = document.querySelector(".parent")
+      // const horizontalize  = document.querySelector(".horizontalize");
+      const columnContainer  = document.querySelector(".column_container");
+      const columns = document.querySelectorAll(".column");
+      const num   = columns.length;
+
+      // 横幅を指定
+      gsap.set(columnContainer,  { width: num * 100 + "%" });
+      gsap.set(columns, { width: 100 / num + "%" });
+
+      gsap.to(columns, {
+        xPercent: 100 * ( num - 1 ), // x方向に移動させる
+        ease: "none",
+        scrollTrigger: {
+          trigger: parent, // トリガー
+          start: "top top", // 開始位置
+          end: "+=1000", // 終了位置
+          pin: true, // ピン留め
+          scrub: true, // スクロール量に応じて動かす
+        }
+      });
+    });
   },
   methods: {
     moveCat1 (ev) {
@@ -240,48 +134,111 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.parent {
+  // width: 100vw;
+  height: 100vh;
 
-  #topback{
-    width: 100%;
-    height: 80vh;
-    background-color: rgb(200, 102, 200);
-    // display: flex; //flexは親に設定する
-    // align-items: center;
-    // justify-content: center;
-    //css3の中央揃え
+  .horizontalize {
+    // margin-right: -300vw;
+    overflow: hidden;
+    // position: absolute;
     position: relative;
-    #toplogo{
-      position: absolute;
-      width: 30vh;
-      height: 30vh;
-      // background-color: rgb(100, 250, 200);
-      //css3の中央揃え
-      top: 50%;
-      left: 50%;
-      // margin-right: -50%;
-      transform: translate(-50%, -50%);
-      .logo_img{
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-    }
-    #sns_container{
-      position:absolute;
+
+    // width: auto;
+    // height: auto;
+    .column_container {
+      // float: right;
+      // overflow: hidden;
+      // height: 80vh;
+      margin-left: -200vw;
       display: flex;
-      width: 30vh;
-      height: 10vh;
-      left: 5%;
-      bottom:10%;
-      //background-color: rgb(0, 0, 200);
-      .snsimg{
-        margin: 0px 10px;
-        //background-color: rgb(200, 0, 200);
-        width: 8vh;
-        height: 8vh;
+      // position: absolute;
+      flex-direction: row-reverse;
+      // width: 300vw;
+      .column {
+        // display: flex;
+        // width: 100vw;
+        height: 100vh;
+        background-color: rgb(10, 20, 30);
+        position: relative;
+
+        // justify-content: center;
+        // align-items: center;
+        // font-size: 50px;
+        // font-weight: bold;
+        // color: #fff;
+        #toplogo{
+          position: absolute;
+          width: 30vh;
+          height: 30vh;
+          // background-color: rgb(100, 250, 200);
+          //css3の中央揃え
+          top: 50%;
+          left: 50%;
+          // margin-right: -50%;
+          transform: translate(-50%, -50%);
+          .logo_img{
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+          }
+        }
+        #sns_container{
+          position:absolute;
+          display: flex;
+          width: 30vh;
+          height: 10vh;
+          left: 5%;
+          bottom:10%;
+          //background-color: rgb(0, 0, 200);
+          .snsimg{
+            margin: 0px 10px;
+            //background-color: rgb(200, 0, 200);
+            width: 8vh;
+            height: 8vh;
+          }
+        }
       }
+      .column1 { background-color: red; }
+      .column2 { background-color: purple; }
+      .column3 { background-color: blue; }
     }
   }
+}
+
+
+  // #toplogo{
+  //   position: absolute;
+  //   width: 30vh;
+  //   height: 30vh;
+  //   // background-color: rgb(100, 250, 200);
+  //   //css3の中央揃え
+  //   top: 50%;
+  //   left: 50%;
+  //   // margin-right: -50%;
+  //   transform: translate(-50%, -50%);
+  //   .logo_img{
+  //     width: 100%;
+  //     height: auto;
+  //     object-fit: cover;
+  //   }
+  // }
+  // #sns_container{
+  //   position:absolute;
+  //   display: flex;
+  //   width: 30vh;
+  //   height: 10vh;
+  //   left: 5%;
+  //   bottom:10%;
+  //   //background-color: rgb(0, 0, 200);
+  //   .snsimg{
+  //     margin: 0px 10px;
+  //     //background-color: rgb(200, 0, 200);
+  //     width: 8vh;
+  //     height: 8vh;
+  //   }
+  // }
+
   .title_txt{
     font-family: 'TF-HOTSU_L';
     font-size: 40px;

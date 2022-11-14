@@ -6,14 +6,14 @@
         <img class="logo_img" src="../../static/Gypsyworks_logo_black.png"></img>
       </div>
       </NuxtLink>
-      <div class="navmenuContainer">
+      <div class="hummenuContainer">
         <NuxtLink to="/categorys">
-          <div class="navmenu">CATEGORYS</div>
+          <div class="hummenu">CATEGORYS</div>
         </NuxtLink>
         <NuxtLink to="/catalog_parallax">
-          <div class="navmenu">CATALOG_PARA</div>
+          <div class="hummenu">CATALOG_PARA</div>
         </NuxtLink>
-        <a class="navmenu" href="https://gypsyworks.stores.jp" target="blank">SHOP</a>
+        <a class="hummenu" href="https://gypsyworks.stores.jp" target="blank">SHOP</a>
       </div>
     </div>
   </nav>
@@ -21,10 +21,28 @@
 
 <style scoped lang="scss">
   nav {
+    width: 10vw;
+    // background-color: #A4A4B5;
+    height: 100vh;
+    // display: flex;
+    margin-right: 0;
+    margin-left: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    // flex-direction: row-reverse;
+    // justify-content: flex-end;
     .navbar{
-      width: 100%;
-      height:20vh;
+      // width: 100%;
+      // height:20vh;
 
+      // width: 10vw;
+      // height: 100vh;
+      display: flex;
+      flex-direction: column;
+      // z-index: 1000;
+      // float: right;
     }
     .navlogo{
       height:80px;
@@ -36,8 +54,8 @@
         width: 100%;
       }
     }
-    //.navmenuContainer{
-      .navmenu{
+    //.hummenuContainer{
+      .hummenu{
         display: inline-block;
         //float: right;
         width:80px;
@@ -45,7 +63,5 @@
         background-color: #444;
       }
     //}
-    width: 100%;
-    background-color: #A4A4A4;
   }
 </style>
