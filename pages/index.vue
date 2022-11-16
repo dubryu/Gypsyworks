@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="parent">
+    <!-- <div class="parent"> -->
       <div class="horizontalize">
         <div class="column_container">
           <div class="column column1">
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
   </main>
 </template>
 
@@ -88,21 +88,21 @@ export default {
       // プラグインを定義 -> import直後へ移動
       // gsap.registerPlugin(ScrollTrigger);
 
-      const parent = document.querySelector(".parent")
-      // const horizontalize  = document.querySelector(".horizontalize");
+      // const parent = document.querySelector(".parent")
+      const horizontalize  = document.querySelector(".horizontalize");
       const columnContainer  = document.querySelector(".column_container");
       const columns = document.querySelectorAll(".column");
       const num   = columns.length;
 
       // 横幅を指定
-      gsap.set(columnContainer,  { width: num * 100 + "%" });
-      gsap.set(columns, { width: 100 / num + "%" });
+      gsap.set(columnContainer,  { width: num * 100 + "vw" });
+      gsap.set(columns, { width: 100 / num + "%" }); // 横スク用に大きくした親要素が３00%なら、子要素１つが100%
 
       gsap.to(columns, {
         xPercent: 100 * ( num - 1 ), // x方向に移動させる
         ease: "none",
         scrollTrigger: {
-          trigger: parent, // トリガー
+          trigger: horizontalize, // トリガー
           start: "top top", // 開始位置
           end: "+=1000", // 終了位置
           pin: true, // ピン留め
@@ -134,20 +134,26 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.parent {
-  // width: 100vw;
-  height: 100vh;
+// .parent {
+//   // width: 100vw;
+//   height: 100vh;
 
   .horizontalize {
-    // margin-right: -300vw;
     overflow: hidden;
-    // position: absolute;
-    // width: auto;
-    // height: auto;
+    // height: 100vh;
+
+    // position: relative;
+    // width: 100%;
+    // height: 700px;
     .column_container {
+
       // float: right;
       // overflow: hidden;
       // height: 80vh;
+
+      // margin-right: 0;
+      // margin-left: auto;
+
       margin-left: -200vw;
       display: flex;
       // position: absolute;
@@ -202,7 +208,7 @@ export default {
       .column3 { background-color: blue; }
     }
   }
-}
+// }
 
 
   // #toplogo{
