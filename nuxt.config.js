@@ -69,7 +69,7 @@ export default {
     '@nuxtjs/auth',
     '@nuxtjs/dotenv',
   ],
-
+  
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // loaders: {

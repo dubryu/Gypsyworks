@@ -9,7 +9,7 @@
                 <img class="logo_img" src="../static/Gypsyworks_logo_black.png"></img>
               </div>
               <div id="sns_container">
-                <img class="snsimg" src="../static/Instagram_logo.png"></img>
+                <a href="https://www.homepage-tukurikata.com/"><img class="snsimg" src="../static/Instagram_logo.png"></img></a>
                 <img class="snsimg" src="../static/Twitter_blue.png"></img>
               </div>
             <!-- </section> -->
@@ -52,11 +52,13 @@ import '../assets/scss/style.scss'
 // gsap
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import BoxCat1 from '../components/common/BoxCat1'
-
 if (process.client) {
   gsap.registerPlugin(ScrollTrigger)
 }
+
+// import BoxCat1 from '../components/common/BoxCat1'
+
+
 
 export default {
   name: 'App',
@@ -79,39 +81,62 @@ export default {
 
   },
   mounted() {
-    if (this.$store.state.token.access_token === "c26d324daa74924ca3c621512a9619fdbfaaf012a183d2756105efd9a1cf02a7"){
-      console.log('in mounted')
-      this.getProducts()
-    }
-    window.addEventListener("load", function(){
-
-      // プラグインを定義 -> import直後へ移動
-      // gsap.registerPlugin(ScrollTrigger);
-
-      // const parent = document.querySelector(".parent")
+    console.log("mounted∆∆∆∆∆∆∆∆∆∆∆∆∆∆")
+    // window.addEventListener("load", function(){
       const horizontalize  = document.querySelector(".horizontalize");
       const columnContainer  = document.querySelector(".column_container");
       const columns = document.querySelectorAll(".column");
       const num   = columns.length;
 
       // 横幅を指定
-      gsap.set(columnContainer,  { width: num * 100 + "vw" });
+      gsap.set(columnContainer,  { width: num * 100 + "%" });
+      gsap.set(columnContainer,  { x: (num-1) * -100 + "vw" });
       gsap.set(columns, { width: 100 / num + "%" }); // 横スク用に大きくした親要素が３00%なら、子要素１つが100%
 
       gsap.to(columns, {
-        xPercent: 100 * ( num - 1 ), // x方向に移動させる
+        // xPercent: 100 * ( num - 1 ), // x方向に移動させる
+        x: () => (columnContainer.clientWidth - horizontalize.clientWidth),
         ease: "none",
         scrollTrigger: {
           trigger: horizontalize, // トリガー
           start: "top top", // 開始位置
-          end: "+=1000", // 終了位置
-          pin: true, // ピン留め
+          // end: "+=1000", // 終了位置
+          end: () => `+=${columnContainer.clientWidth - horizontalize.clientWidth}`,
+          pin: true, // ピン留め=スクロール中指定要素を固定
+          // anticipatePin: 1,
           scrub: true, // スクロール量に応じて動かす
+          invalidateOnRefresh: true,
+          // horizontal: true, // スクロールのむき
+          // once: true,
+          // onUpdate: this.render(),
+          // pinSpacing: "margin",
+          // preventOverlaps: "preventOverlaps",
+          onEnter: ()=> console.log("for debug"),
         }
       });
-    });
+    // });
   },
   methods: {
+    gsapRe () {
+      // const horizontalize  = document.querySelector(".horizontalize");
+      // const columnContainer  = document.querySelector(".column_container");
+      // const columns = document.querySelectorAll(".column");
+      // gsap.to(columns, {
+      //   // xPercent: 100 * ( num - 1 ), // x方向に移動させる
+      //   x: () => (columnContainer.clientWidth - horizontalize.clientWidth),
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: horizontalize, // トリガー
+      //     start: "top top", // 開始位置
+      //     // end: "+=1000", // 終了位置
+      //     end: () => `+=${columnContainer.clientWidth - horizontalize.clientWidth}`,
+      //     pin: true, // ピン留め=スクロール中指定要素を固定
+      //     // anticipatePin: 1,
+      //     scrub: true, // スクロール量に応じて動かす
+      //     invalidateOnRefresh: true,
+      //   }
+      // });
+    },
     moveCat1 (ev) {
       // クリックされたX座標までスライドする
       this.$refs.cat1.moveTo(ev.offsetX, ev.offsetY)
@@ -128,7 +153,7 @@ export default {
       .catch((error) => {
         console.error(error)
       })
-    }
+    },
   }
 }
 </script>
@@ -142,35 +167,23 @@ export default {
     overflow: hidden;
     // height: 100vh;
 
-    // position: relative;
-    // width: 100%;
-    // height: 700px;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
     .column_container {
-
-      // float: right;
-      // overflow: hidden;
-      // height: 80vh;
-
-      // margin-right: 0;
-      // margin-left: auto;
-
-      margin-left: -200vw;
+      // margin-left: -200vw;
+      position: absolute;
       display: flex;
-      // position: absolute;
       flex-direction: row-reverse;
-      // width: 300vw;
+
+      width: 300vw;
+      height: 100%;
       .column {
-        // display: flex;
-        // width: 100vw;
-        height: 100vh;
+        height: 100%;
         background-color: rgb(10, 20, 30);
         position: relative;
 
-        // justify-content: center;
-        // align-items: center;
-        // font-size: 50px;
-        // font-weight: bold;
-        // color: #fff;
+        width: 100vw;
         #toplogo{
           position: absolute;
           width: 30vh;
