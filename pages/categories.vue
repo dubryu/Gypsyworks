@@ -8,7 +8,6 @@
         <div class="product_caption">
            <p>{{product.name}}</p>
         </div>
-
       </div>
     </div>
 
