@@ -227,6 +227,7 @@ export default {
             scaleX: 1,
             // scaleY: 0,
             clipPath: "inset(0% 0% 100%)",
+            // pin: true,
         },
         {
           x: '0',

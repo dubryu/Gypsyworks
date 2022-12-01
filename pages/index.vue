@@ -15,22 +15,7 @@
             <!-- </section> -->
           </div>
           <div class="column column2">
-            <!-- <section> -->
-              <!-- <div class="title_container">
-                <h1 class="title_txt">カテゴリ</h1>
-              </div> -->
-              <!-- <div class="centerize_container">
-                <div class="photo_bg">
-                  <div class="photo_item"></div>
-                  <div class="photo_caption"></div>
-                  <div class="stores_container">
-                  <div class="storesjp-button" data-storesjp-item="5f617c82fbe5b5732acef0eb" data-storesjp-variation="5f617c82fbe5b5732acef0ed" data-storesjp-name="gypsyworks" data-storesjp-layout="layout_a" data-storesjp-lang="ja" ></div><script>(function(d,s,id){var st=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}var nst=d.createElement(s);nst.id=id;nst.src="//btn.stores.jp/button.js";nst.charset="UTF-8";st.parentNode.insertBefore(nst,st);})(document, "script", "storesjp-button");</script>
-                  </div>
-                </div>
-                <div class="photo_bg"></div>
-                <div class="photo_bg"></div>
-              </div> -->
-            <!-- </section> -->
+            <img src="../static/someru.jpg"></img>
           </div>
           <div class="column column3">
             <!-- <section>
@@ -39,6 +24,8 @@
                   <BoxCat1 ref="cat1" />
                 </div>
             </section> -->
+          </div>
+          <div class="column column4">
           </div>
         </div>
       </div>
@@ -72,7 +59,8 @@ export default {
         password: '',
       },
       users: [],
-      accessToken: ''
+      accessToken: '',
+      msg: 'change point',
     }
   },
   mutations: {
@@ -81,61 +69,100 @@ export default {
 
   },
   mounted() {
-    console.log("mounted∆∆∆∆∆∆∆∆∆∆∆∆∆∆")
-    // window.addEventListener("load", function(){
-      const horizontalize  = document.querySelector(".horizontalize");
-      const columnContainer  = document.querySelector(".column_container");
-      const columns = document.querySelectorAll(".column");
-      const num   = columns.length;
-
-      // 横幅を指定
-      gsap.set(columnContainer,  { width: num * 100 + "%" });
-      gsap.set(columnContainer,  { x: (num-1) * -100 + "vw" });
-      gsap.set(columns, { width: 100 / num + "%" }); // 横スク用に大きくした親要素が３00%なら、子要素１つが100%
-
-      gsap.to(columns, {
-        // xPercent: 100 * ( num - 1 ), // x方向に移動させる
-        x: () => (columnContainer.clientWidth - horizontalize.clientWidth),
-        ease: "none",
-        scrollTrigger: {
-          trigger: horizontalize, // トリガー
-          start: "top top", // 開始位置
-          // end: "+=1000", // 終了位置
-          end: () => `+=${columnContainer.clientWidth - horizontalize.clientWidth}`,
-          pin: true, // ピン留め=スクロール中指定要素を固定
-          // anticipatePin: 1,
-          scrub: true, // スクロール量に応じて動かす
-          invalidateOnRefresh: true,
-          // horizontal: true, // スクロールのむき
-          // once: true,
-          // onUpdate: this.render(),
-          // pinSpacing: "margin",
-          // preventOverlaps: "preventOverlaps",
-          onEnter: ()=> console.log("for debug"),
-        }
-      });
-    // });
+    this.gsapHorizon();
   },
   methods: {
-    gsapRe () {
-      // const horizontalize  = document.querySelector(".horizontalize");
-      // const columnContainer  = document.querySelector(".column_container");
-      // const columns = document.querySelectorAll(".column");
-      // gsap.to(columns, {
-      //   // xPercent: 100 * ( num - 1 ), // x方向に移動させる
-      //   x: () => (columnContainer.clientWidth - horizontalize.clientWidth),
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: horizontalize, // トリガー
-      //     start: "top top", // 開始位置
-      //     // end: "+=1000", // 終了位置
-      //     end: () => `+=${columnContainer.clientWidth - horizontalize.clientWidth}`,
-      //     pin: true, // ピン留め=スクロール中指定要素を固定
-      //     // anticipatePin: 1,
-      //     scrub: true, // スクロール量に応じて動かす
-      //     invalidateOnRefresh: true,
-      //   }
+    gsapHorizon () {
+        console.log("mounted∆∆∆∆∆∆∆∆∆∆∆∆∆∆")
+      // window.addEventListener("load", function(){
+        const horizontalize  = document.querySelector(".horizontalize");
+        const columnContainer  = document.querySelector(".column_container");
+        const columns = document.querySelectorAll(".column");
+        const num   = columns.length;
+
+        // 横幅を指定
+        gsap.set(columnContainer,  { width: num * 100 + "%" });
+        gsap.set(columnContainer,  { x: (num-1) * -100 + "vw" });
+        gsap.set(columns, { width: 100 / num + "%" }); // 横スク用に大きくした親要素が３00%なら、子要素１つが100%
+
+        gsap.to(columns, {
+          // xPercent: 100 * ( num - 1 ), // x方向に移動させる
+          x: () => (columnContainer.clientWidth - horizontalize.clientWidth),
+          ease: "none", // <-- IMPORTANT!
+          scrollTrigger: {
+            trigger: horizontalize, // トリガー
+            start: "top top", // 開始位置
+            // end: "+=1000", // 終了位置
+            end: () => `+=${columnContainer.clientWidth - horizontalize.clientWidth}`,
+            pin: true, // ピン留め=スクロール中指定要素を固定
+            scrub: true, // スクロール量に応じて動かす
+            // scrub: 2, // アニメーションがスクロールに反応するまでの時間
+            // snap: { // キリの良い位置へ移動させる
+            //   snapTo: 1 / ( num - 1 ),
+            //   duration: 2,
+            // },
+            invalidateOnRefresh: true,
+            // horizontal: true, // スクロールのむき
+            // preventOverlaps: true,
+            onEnter: ()=> console.log("for debug column amount is...: " + num),
+          }
+        });
+
+        // right picture clipping mask
+        // gsap.fromTo('.right_img_container2', {
+        //   // 関数で指定することで、リサイズによって要素の大きさが変わっても自動でアニメーションを計算し直してくれます。
+        //   // x: () => -(listEl.clientWidth - listWrapperEl.clientWidth) https://liginc.co.jp/548232#JavaScript
+        //   x: "0",
+        //   y: "0",
+        //   clipPath: "inset(0% 0% 100%)",
+        //   // pin: true,
+        // },
+        // {
+        //   x: '0',
+        //   y: '0',
+        //   clipPath: "inset(0% 0% 0%)",
+        //   scrollTrigger: {
+        //     trigger: '.main_container',
+        //     // 第一引数＝トリガー要素の指定した位置と第二引数=ブラウザ画面の指定した位置 がアニメーションの起点、終点になる
+        //     start: 'center left',
+        //     end: 'right right',
+        //     // アニメーションをスクロール位置にリンクさせる
+        //     scrub: true,
+        //     markers: true, // マーカー表示
+        //     preventOverlaps: true,
+        //     // pin: true,
+        //     containerAnimation: scrollHorizonal
+        //   }
+        // });
+        // // vertical moving
+
+
+        // 3
+        // gsap.fromTo('.right_img_container3', {
+        //   x: "0",
+        //   y: "0",
+        //   clipPath: "inset(0% 0% 100%)",
+        //   containerAnimation: scrollHorizonal,
+        // },
+        // {
+        //   x: '0',
+        //   y: '0',
+        //   clipPath: "inset(0% 0% 0%)",
+        //   scrollTrigger: {
+        //     trigger: '.sc_trigger2',
+        //     start: 'top bottom',
+        //     end: 'bottom bottom',
+        //     scrub: true,
+        //     markers: false, // マーカー表示
+        //     containerAnimation: scrollHorizonal,
+        //   }
+        // });
       // });
+    },
+    scrollItemA() {
+      // const browserH = String(window.innerHeight);
+    },
+    scrollItemB() {
     },
     moveCat1 (ev) {
       // クリックされたX座標までスライドする
@@ -159,14 +186,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// .parent {
-//   // width: 100vw;
-//   height: 100vh;
 
   .horizontalize {
     overflow: hidden;
-    // height: 100vh;
-
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -216,51 +238,33 @@ export default {
           }
         }
       }
-      .column1 { background-color: red; }
-      .column2 { background-color: purple; }
-      .column3 { background-color: blue; }
+      .column1 {
+        background-color: red;
+      }
+      .column2 {
+        background-color: purple;
+        display: flex;
+        align-items: center; // 上下中央に
+        justify-content: center; // 左右中央に
+        img {
+          object-fit: contain;
+          width: 100%;
+          height: auto;
+          max-width: 100%; // 🖐sp対策に大事!
+        }
+      }
+      .column3 {
+        background-color: blue;
+        height: 500vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .column4 {
+        background-color: red;
+      }
     }
   }
-// }
 
-
-  // #toplogo{
-  //   position: absolute;
-  //   width: 30vh;
-  //   height: 30vh;
-  //   // background-color: rgb(100, 250, 200);
-  //   //css3の中央揃え
-  //   top: 50%;
-  //   left: 50%;
-  //   // margin-right: -50%;
-  //   transform: translate(-50%, -50%);
-  //   .logo_img{
-  //     width: 100%;
-  //     height: auto;
-  //     object-fit: cover;
-  //   }
-  // }
-  // #sns_container{
-  //   position:absolute;
-  //   display: flex;
-  //   width: 30vh;
-  //   height: 10vh;
-  //   left: 5%;
-  //   bottom:10%;
-  //   //background-color: rgb(0, 0, 200);
-  //   .snsimg{
-  //     margin: 0px 10px;
-  //     //background-color: rgb(200, 0, 200);
-  //     width: 8vh;
-  //     height: 8vh;
-  //   }
-  // }
-
-  .title_txt{
-    font-family: 'TF-HOTSU_L';
-    font-size: 40px;
-    color: rgb(100, 150, 100);
-  }
 
   .centerize_container{
     display: flex;
@@ -300,24 +304,113 @@ export default {
     }
   }
 
-  .stage {
-  position: relative;
-  width: 100%;
-  height: 350px;
-  border: 1px solid #aaa;
-  background-color: rgb(248, 248, 247);
-  overflow: hidden;
+  @mixin triggerCSS {
+    width: 300px;
+    height: 255px;
+    margin-top: 140px;
+    background-color: rgb(0, 200, 199);
   }
-  .note {
-  color: #888;
-  text-align: center;
-  position: absolute;
-  width: 100%;
-  user-select: none;
+  @mixin image_containerCSS {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(210, 30, 100);
+    overflow: hidden;
+    min-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: top;
+    position: absolute;
   }
-  @font-face {
-  	font-family: 'hotu';
-  	src: url('../assets/fonts/TF-HOTSU_L.TTF');
-    // src: local('TCM Hotsuma Character Large');
+  .main_container {
+    height: 50%;
+    width: 100vw;
+    background-color: rgb(200, 200, 110);
+    display: block;
+    // position: -webkit-sticky; /* Safariに対応する */
+    // position: sticky;
+  }
+  .main_container_second {
+    height: 50%;
+    width: 100vw;
+    background-color: rgb(255, 200, 110);
+    display: flex;
+    margin-top: 250vh;
+  }
+  .left_split{
+    width: 50%;
+    height: auto;
+    background-color: rgb(100, 0, 100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    //position:-webkit-sticky; position:sticky; top:0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    //display: table-cell;
+    .main_title{
+      height: 10%;
+    }
+
+    .sc_trigger1{
+      @include triggerCSS;
+    }
+    .sc_trigger2{
+      @include triggerCSS;
+    }
+    .sc_trigger3{
+      @include triggerCSS;
+    }
+    .sc_trigger4{
+      @include triggerCSS;
+    }
+    .sc_trigger5{
+      @include triggerCSS;
+    }
+  }
+  .right_sprit{
+    width: 50%;
+    // height: 100%;
+    background-color: rgb(200, 0, 100);
+    position:relative;
+    .right-sticky{
+      top: 0;
+      left: 0;
+      width: 100%;
+      height:100vh;
+      background-color: rgb(210, 30, 100);
+      overflow: hidden;
+      min-width: 100%;
+
+      position: -webkit-sticky; /* Safariに対応する */
+      position: sticky; /* 要素を固定/解除する */
+      //  position: sticky; は、親要素のheightを基準に固定される位置が決まります。
+      // （親要素のheightを超えたら、固定が解除される）
+      // そのため、親要素にheightを指定しないと、そもそも有効になりません。
+      .right_img_container{
+        @include image_containerCSS;
+      }
+      .right_img_container2{
+        @include image_containerCSS;
+        // transform-origin: left top;
+        // clip-path 100%でimgが見えなくなるマスクの設定。適用範囲開始位置以下で100%, 適用終点以上で0%にすることでだんだん表示させる
+        // 計算式：1 - ((スクロール量 - クリッピングマスク解除適用開始位置の座標) / 解除開始から終了までのスクロール幅) * 100%
+        // clip-path: inset(0% 0% calc((1 - min((max(var(--scroll-Y), 0) - var(--clipStart-YIn1)) / var(--switch-Length), 1)) * 100%));
+      }
+      .right_img_container3{
+        @include image_containerCSS;
+      }
+      .right_img_container4{
+        @include image_containerCSS;
+      }
+      .right_img_container5{
+        @include image_containerCSS;
+      }
+    }
+
   }
 </style>

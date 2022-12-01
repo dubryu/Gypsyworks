@@ -15,6 +15,7 @@ export default {
   server: {
     port: 8080, // デフォルト: 3000
     host: '0.0.0.0', // デフォルト: localhost
+    timing: false,
   },
   router: {
     base: '/gypsyworks/'
@@ -69,7 +70,7 @@ export default {
     '@nuxtjs/auth',
     '@nuxtjs/dotenv',
   ],
-  
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // loaders: {

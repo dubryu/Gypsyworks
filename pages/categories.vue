@@ -30,7 +30,7 @@ export default {
   },
 
   created() {
-    console.log("get inside categorys in created")
+    console.log("get inside categories in created")
     const firebaseConfig = {
       storageBucket: 'gs://gypsyworks-5cf3e.appspot.com'
     }
