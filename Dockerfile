@@ -1,5 +1,8 @@
 FROM node:10
 
+# エラーがでたので追加 22/12/01
+RUN apk add --no-cache python make g++
+
 # コンテナ内のwork dirを設定
 WORKDIR /src
 
