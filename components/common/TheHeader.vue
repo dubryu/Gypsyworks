@@ -7,8 +7,8 @@
       </div>
       </NuxtLink>
       <div class="hummenuContainer">
-        <NuxtLink to="/categorys">
-          <div class="hummenu">CATEGORYS</div>
+        <NuxtLink to="/categories">
+          <div class="hummenu">CATEGORIES</div>
         </NuxtLink>
         <NuxtLink to="/catalog_parallax">
           <div class="hummenu">CATALOG_PARA</div>

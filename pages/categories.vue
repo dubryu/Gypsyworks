@@ -8,10 +8,8 @@
         <div class="product_caption">
            <p>{{product.name}}</p>
         </div>
-
       </div>
     </div>
-
     <script type="text/javascript">
     </script>
   </main>
@@ -30,7 +28,7 @@ export default {
   },
 
   created() {
-    console.log("get inside categorys in created")
+    console.log("get inside categories in created")
     const firebaseConfig = {
       storageBucket: 'gs://gypsyworks-5cf3e.appspot.com'
     }
