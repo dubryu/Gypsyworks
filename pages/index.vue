@@ -3,16 +3,16 @@
     <!-- <div class="parent"> -->
       <div class="horizontalize">
         <div class="column_container">
-          <div  id="concept" class="column column1">
-            <!-- <section id="topback"> -->
-              <div id="toplogo">
+          <div id="concept" class="column column1">
+              <!-- <img src="../static/bubble_age1.png"></img> -->
+              <div id="back_blur"></div>
+              <div id="logo_box">
                 <img class="logo_img" src="../static/Gypsyworks_logo_black.png"></img>
               </div>
               <div id="sns_container">
                 <a href="https://instagram.com/fumiiiiii?igshid=YmMyMTA2M2Y="><img class="snsimg" src="../static/Instagram_logo.png"></img></a>
                 <!-- <img class="snsimg" src="../static/Twitter_blue.png"></img> -->
               </div>
-            <!-- </section> -->
           </div>
           <div  id="product" class="column column2">
             <img src="../static/someru.jpg"></img>
@@ -246,7 +246,48 @@ export default {
         position: relative;
 
         width: 100vw;
-        #toplogo{
+
+        /* ダークモードに対応しているとする */
+        // ユーザーがシステムに要求したカラーテーマが明色か暗色かを検出するために使用される
+        @media (prefers-color-scheme: light) {
+          html {
+            --bg-color: 255, 255, 255;
+          }
+        }
+        @media (prefers-color-scheme: dark) {
+          html {
+            --bg-color: 18, 18, 18;
+          }
+        }
+        body {
+          background: rgb(var(--bg-color));
+        }
+        #back_blur{
+          width: 30vh;
+          height: 30vh;
+          top: 50%;
+          left: 50%;
+          background: #FFF;
+          transform: translate(-50%, -50%);
+          aspect-ratio: 1 / 1;
+          border-radius: 100%;
+          width: min(100%, 30vh);
+          opacity: 0.07;
+          position: relative;
+        }
+        #back_blur::after {
+        	position: absolute;
+        	content: '';
+        	top: 0;
+        	bottom: 0;
+        	left: 0;
+        	right: 0;
+          // 円にする
+          border-radius: 100%;
+          /* offset-x | offset-y | blur-radius | spread-radius | color */
+        	box-shadow: 0 0 20px 20px #FFF;
+        }
+        #logo_box{
           position: absolute;
           width: 30vh;
           height: 30vh;
@@ -254,12 +295,57 @@ export default {
           //css3の中央揃え
           top: 50%;
           left: 50%;
-          // margin-right: -50%;
           transform: translate(-50%, -50%);
+          // ブラー
+          // --sample-color: 255, 222, 222;
+          // aspect-ratio: 1 / 1;
+          // // background: radial-gradient(circle, rgb(var(--sample-color)), rgba(var(--sample-color), 0));
+          // background: linear-gradient(45deg, red, blue);
+          // border-radius: 100%;
+          // filter: blur(0.5px);
+          // width: min(100%, 30vh);
+          // opacity: 0.1;
+          // position: relative;
+          // // アニメーション
+          // animation-name:expansion;
+          // animation-duration:1.4s;
+          // animation-timing-function:ease-in;
+          // animation-delay:1.2s;
+          // animation-iteration-count:infinite;
+          // animation-direction:alternate;
+          // animation-fill-mode:forwards;
+          // animation-play-state:running;
+          // @keyframes expansion{
+          //   0%{
+          //     width:min(100%, 33vh);
+          //     filter: blur(0.5px);
+          //   }
+          //   25%{
+          //     width:min(100%, 33vh);
+          //     filter: blur(0.1px);
+          //   }
+          //   50%{
+          //     width:min(100%, 35vh);
+          //     filter: blur(50px);
+          //   }
+          //   60%{
+          //     width:min(100%, 33vh);
+          //     filter: blur(0.1px);
+          //   }
+          //   85%{
+          //     width:min(100%, 32vh);
+          //     filter: blur(0.2px);
+          //   }
+          //   100%{
+          //     width:min(100%, 30vh);
+          //     filter: blur(0.5px);
+          //   }
+          // }
           .logo_img{
             width: 100%;
             height: auto;
             object-fit: cover;
+            z-index: 10;
           }
         }
         #sns_container{
@@ -279,7 +365,16 @@ export default {
         }
       }
       .column1 {
-        background-color: red;
+        // background-color: white;
+        background-image: url("../static/bubble_age_a.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: -100;
+        }
       }
       .column2 {
         background-color: purple;
