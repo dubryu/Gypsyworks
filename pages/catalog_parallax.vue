@@ -63,7 +63,7 @@
           </div>
           <div id="cap4" v-rellax="{ speed:2 }" class="caption_bx_3split">
             <h2 class="caption_title">T-SHIRTS</h2>
-            <div v-rellax="{ speed:-1.1 }" class="caption_detail_narrow">染めの伝統的な技法を現代に遊ぶ全ての人に送る全宇宙カラー。<br><br><br><br>
+            <div v-rellax="{ speed:-1.1 }" class="caption_detail_narrow">染めの伝統的な技法で、現代に遊ぶ全ての人を彩る全宇宙的総天然色。<br><br><br><br>
               シルクスクリーンとのミックスや部分的に染める技法もありオーダーのテイストに沿って提案。こちらも持ち込んだTシャツでも◎<br><br>
               納期 : 約一ヶ月<br><br><br><br>
               サイズ :~~~ × ~~~~<br><br><br><br>
@@ -100,8 +100,9 @@
           下記に記載がございます。ご注文の前に良くお読みください。<br>
         ・ご注文日から2週間以内に商品をお受け取りになれる方のみ、ご注文ください。<br>
           何週間も先のお受け取り日を指定されても、当方では対応できません。<br><br><br>
-          <h1>all rights reserved<br>じぷしーわーくす</h1>
+
       </div>
+      <h1>all rights reserved<br>じぷしーわーくす</h1>
     </section>
   </main>
 
@@ -126,19 +127,6 @@
   h1 {
     margin-bottom: 0px;
   }
-}
-@mixin image_containerCSS {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(210, 30, 100);
-  overflow: hidden;
-  min-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  object-position: top;
-  position: absolute;
 }
 .title_txt {
   font-family: "Oradano-mincho-GSRR";
@@ -262,6 +250,18 @@
     //  position: sticky; は、親要素のheightを基準に固定される位置が決まります。
     // （親要素のheightを超えたら、固定が解除される）
     // そのため、親要素にheightを指定しないと、そもそも有効になりません。
+    @mixin image_containerCSS {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      min-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      object-position: top;
+      position: absolute;
+    }
     .right_img_container{
       @include image_containerCSS;
     }
@@ -297,17 +297,17 @@
 
 }
 .parag_container {
-  height: 85vh;
-  width: 100vw;
+  // 高さは子要素に合わせることにする
+  height: 70vh;
   width: 60vw;
   margin: 0% 20% 0% 20%;
-  h1 {
-    font-family: "Oradano-mincho-GSRR";
-    font-size: 28px;
-    font-feature-settings: "titl";
-    text-align: center;
-    margin-bottom: 0;
-  }
+}
+.parag_container + h1{
+  font-family: "Oradano-mincho-GSRR";
+  font-size: 28px;
+  font-feature-settings: "titl";
+  text-align: center;
+  margin-bottom: 5%;
 }
 </style>
 
@@ -448,7 +448,7 @@ export default {
             trigger: '#cap2',
             // 第一引数＝トリガー要素の指定した位置と第二引数=ブラウザ画面の指定した位置 がアニメーションの起点、終点になる
             start: '70% bottom',
-            end: '+=150 bottom',
+            end: '+=180 bottom',
             scrub: true,
             markers: false, // マーカー表示
           }
@@ -460,16 +460,16 @@ export default {
             x: "0",
             y: "0",
             scaleX: 1,
-            clipPath: "inset(0% 0% 100%)",
+            clipPath: "inset(0% 0% 0% 100%)",
         },
         {
           x: '0',
           y: '0',
-          clipPath: "inset(0% 0% 0%)",
+          clipPath: "inset(0% 0% 0% 0%)",
           scrollTrigger: {
             trigger: '#cap3',
             start: '10% bottom',
-            end: '+=150 bottom',
+            end: '+=180 bottom',
             scrub: true,
             markers: false, // マーカー表示
           }
@@ -481,16 +481,16 @@ export default {
             x: "0",
             y: "0",
             scaleX: 1,
-            clipPath: "inset(0% 0% 100%)",
+            clipPath: "inset(0% 0% 0% 100%)",
         },
         {
           x: '0',
           y: '0',
-          clipPath: "inset(0% 0% 0%)",
+          clipPath: "inset(0% 0% 0% 0%)",
           scrollTrigger: {
             trigger: '#cap3',
             start: 'center bottom',
-            end: '+=150 bottom',
+            end: '+=180 bottom',
             scrub: true,
             markers: false, // マーカー表示
           }
@@ -511,7 +511,7 @@ export default {
           scrollTrigger: {
             trigger: '#cap4',
             start: '10% bottom',
-            end: '+=150 bottom',
+            end: '+=180 bottom',
             scrub: true,
             markers: false, // マーカー表示
           }
@@ -532,26 +532,40 @@ export default {
           scrollTrigger: {
             trigger: '#cap4',
             start: 'center bottom',
-            end: '+=150 bottom',
+            end: '+=180 bottom',
             scrub: true,
             markers: false, // マーカー表示
           }
         }
       )
     },
-    // 以下のようにmethodsに書いた関数を要素のv-observe-visibilityとして指定すると表示領域に入ったら呼ばれるようになる
-    visibility1Changed (isVisible, entry) {
-      if (isVisible) {
-        console.log("zero is visible");
-      }
-    },
+
     handleScroll() {
       // スクロール量の取得代入
       this.scrollY = window.scrollY;
     },
+    setRandomRotate() {
+      // document.getElementByClassName("main_title").style.transform = "rotate(" + Math.floor(Math.random()) + "turn)";
+
+      // const sub = document.getElementsByClassName("sub_title");
+      // sub.style.transform = "rotate(" + Math.floor(Math.random()) + "turn)";
+    },
+    getRandomIntInclusive(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+    },
+  },
+  created() {
 
   },
   mounted() {
+    window.addEventListener("load", function(){
+      console.log("loooooooooooooooood");
+      // document.querySelectorAll('main_title').style.transform = "rotate(0.03turn)"
+      $(".main_title").css("transform", "rotate(0.03turn);");
+      // this.setRandomRotate();
+    });
     window.addEventListener('scroll', this.handleScroll);
     // 垂直スライドの起点の要素の座標を取得
     // this.clipStartYIn1 = this.$refs.tri1.getBoundingClientRect().top + window.pageYOffset;

@@ -5,17 +5,19 @@
         <div class="column_container">
           <div id="concept" class="column column1">
               <!-- <img src="../static/bubble_age1.png"></img> -->
-              <div id="back_blur"></div>
+              <div id="logo_back_blur"></div>
               <div id="logo_box">
                 <img class="logo_img" src="../static/Gypsyworks_logo_black.png"></img>
               </div>
+
               <div id="sns_container">
                 <a href="https://instagram.com/fumiiiiii?igshid=YmMyMTA2M2Y="><img class="snsimg" src="../static/Instagram_logo.png"></img></a>
                 <!-- <img class="snsimg" src="../static/Twitter_blue.png"></img> -->
               </div>
           </div>
           <div  id="product" class="column column2">
-            <img src="../static/someru.jpg"></img>
+            <!-- <img src="../static/someru.jpg"></img> -->
+
           </div>
           <div  id="company" class="column column3">
             <!-- <section>
@@ -238,15 +240,12 @@ export default {
       display: flex;
       flex-direction: row-reverse;
 
-      width: 300vw;
+      // width: 450vw;
       height: 100%;
       .column {
+        // width: 150vw;
         height: 100%;
-        background-color: rgb(10, 20, 30);
         position: relative;
-
-        width: 100vw;
-
         /* ダークモードに対応しているとする */
         // ユーザーがシステムに要求したカラーテーマが明色か暗色かを検出するために使用される
         @media (prefers-color-scheme: light) {
@@ -262,20 +261,20 @@ export default {
         body {
           background: rgb(var(--bg-color));
         }
-        #back_blur{
-          width: 30vh;
-          height: 30vh;
+        #logo_back_blur{
+          // width: 30vh;
+          height: 22vh;
           top: 50%;
           left: 50%;
           background: #FFF;
           transform: translate(-50%, -50%);
           aspect-ratio: 1 / 1;
           border-radius: 100%;
-          width: min(100%, 30vh);
+          width: min(100%, 22vh);
           opacity: 0.07;
           position: relative;
         }
-        #back_blur::after {
+        #logo_back_blur::after {
         	position: absolute;
         	content: '';
         	top: 0;
@@ -285,7 +284,8 @@ export default {
           // 円にする
           border-radius: 100%;
           /* offset-x | offset-y | blur-radius | spread-radius | color */
-        	box-shadow: 0 0 20px 20px #FFF;
+        	box-shadow: 0 0 25px 20px #FFF;
+          // background: radial-gradient(rgba(var(--bg-color), 0), rgb(var(--bg-color)));
         }
         #logo_box{
           position: absolute;
@@ -296,14 +296,16 @@ export default {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          // ブラー
+          // 以下ブラー背景づくり
           // --sample-color: 255, 222, 222;
+          //    円をつくる
           // aspect-ratio: 1 / 1;
+          // border-radius: 100%;
+          // width: min(100%, 30vh);
+          //    グラデーションカラー
           // // background: radial-gradient(circle, rgb(var(--sample-color)), rgba(var(--sample-color), 0));
           // background: linear-gradient(45deg, red, blue);
-          // border-radius: 100%;
           // filter: blur(0.5px);
-          // width: min(100%, 30vh);
           // opacity: 0.1;
           // position: relative;
           // // アニメーション
@@ -367,27 +369,50 @@ export default {
       .column1 {
         // background-color: white;
         background-image: url("../static/bubble_age_a.jpg");
-        background-size: cover;
+        background-size: 100%;
+        // background-position: -100px 0px;
         background-repeat: no-repeat;
+        position: relative;
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          z-index: -100;
+          // z-index: -100;
         }
       }
+      // .column1:after {
+      //   position: absolute;
+      //   content: "";
+      //   top: 0;
+      //   left: 0;
+      //   bottom: 0;
+      //   right: 0;
+      //   box-shadow: inset 60px 0 50px 0px #6A5757 /* 背景色と同じ色 */,
+      // }
       .column2 {
-        background-color: purple;
+        // background-color: purple;
         display: flex;
         align-items: center; // 上下中央に
         justify-content: center; // 左右中央に
         img {
           object-fit: contain;
+          background-color: purple;
           width: 100%;
           height: auto;
           max-width: 100%; // 🖐sp対策に大事!
+          justify-content: center;
+          // overflow: visible;
         }
       }
+      // .column2:after {
+      //   position: absolute;
+      //   content: "";
+      //   top: 0;
+      //   left: 0;
+      //   bottom: 0;
+      //   right: 0;
+      //   box-shadow: inset -60px 0 50px 0px #6A5757 /* 背景色と同じ色 */,
+      // }
       .column3 {
         background-color: blue;
         height: 500vh;
