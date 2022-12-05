@@ -110,7 +110,7 @@
     left: 20px;
     width: 32px;
     height: 2px;
-    background: #333333;
+    background: #FFFFFF;
     text-align: center;
   }
   .hamburger .line01 {

@@ -124,6 +124,7 @@
 .title_container {
   // background-color: rgb(255, 222, 222);
   // 対ユーザーエージェント
+  color: white;
   h1 {
     margin-bottom: 0px;
   }
@@ -132,6 +133,7 @@
   font-family: "Oradano-mincho-GSRR";
   font-size: 40px;
   font-feature-settings: "titl";
+  color: #140F0E;
 }
 .main_container{
   height: 250vh;
@@ -301,6 +303,7 @@
   height: 70vh;
   width: 60vw;
   margin: 0% 20% 0% 20%;
+  color: #140F0E;
 }
 .parag_container + h1{
   font-family: "Oradano-mincho-GSRR";
@@ -539,6 +542,23 @@ export default {
         }
       )
     },
+    scrollGradation() {
+      gsap.fromTo('body', {
+          background: "#140F0E",
+          delay: 50,
+        },
+        {
+          background: "#F1EDDC",
+          scrollTrigger: {
+            trigger: '.parag_container',
+            start: 'top bottom',
+            end: 'bottom bottom',
+            scrub: true,
+            markers: false, // マーカー表示
+          }
+        }
+      )
+    },
 
     handleScroll() {
       // スクロール量の取得代入
@@ -581,6 +601,7 @@ export default {
       this.scrollItemF();
       this.scrollItemG();
       this.scrollItemH();
+      this.scrollGradation();
     });
   },
 }
