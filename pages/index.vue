@@ -59,7 +59,8 @@
     <!-- </div> -->
   </main>
 </template>
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="jquery.ripples-min.js"></script>
 <script>
 import axios from 'axios'
 import '../assets/scss/style.scss'
@@ -77,6 +78,10 @@ if (process.client) {
   // gsap.registerPlugin(MotionPathPlugin);
 }
 
+// import jQuery from 'jquery'
+// global.jquery = jQuery
+// global.$ = jQuery
+// window.$ = window.jQuery = require('jquery')
 // import BoxCat1 from '../components/common/BoxCat1'
 
 
@@ -102,6 +107,15 @@ export default {
   mutations: {
   },
   created() {
+
+    // $(function(){
+    //   const $ripp = $('.column1');
+    //   $ripp.ripples({
+    //     resolution: 150,    // 波紋の広がり速度
+    //     dropRadius: 10,      // 波紋の大きさ
+    //     perturbance: 0.01   // 波紋のぶれ
+    //   });
+    // });
     console.log("get inside categories in created")
     const firebaseConfig = {
       storageBucket: 'gs://gypsyworks-5cf3e.appspot.com'
@@ -130,13 +144,15 @@ export default {
       })
   },
   mounted() {
+    // const ripp  = document.querySelector(".column");
+    // ripp.ripples({
+    //   resolution: 150,    // 波紋の広がり速度
+    //   dropRadius: 10,      // 波紋の大きさ
+    //   perturbance: 0.01   // 波紋のぶれ
+    // })
     this.gsapHorizon();
-    // this.svgAnimationA();
   },
   methods: {
-    prodLink (id) {
-      return "https://gypsyworks.shop-pro.jp/?pid=" + id;
-    },
     gsapHorizon () {
       // window.addEventListener("load", function(){
         const horizontalize  = document.querySelector(".horizontalize");
@@ -344,6 +360,8 @@ export default {
           // 円にする
           border-radius: 100%;
           /* offset-x | offset-y | blur-radius | spread-radius | color */
+          // blur-radius 値が大きくなると影が広がるが、影の色が薄くなる
+          // spread-radius 影のサイズも大きくしたいけど、色はそのままの濃さが良いというときに使う
         	box-shadow: 0 0 25px 20px #FFF;
           // background: radial-gradient(rgba(var(--bg-color), 0), rgb(var(--bg-color)));
         }
@@ -470,7 +488,7 @@ export default {
         align-items: center; // 上下中央に
         justify-content: center; // 左右中央に
         // 素材感のあるimageと混ぜる
-        background-color: rgba(20, 15, 14, 0.9);
+        background-color: rgba(42, 30, 23, 0.78);
         // background-image: url("../static/kidpix-texture-blackamb.png");
         // background-blend-mode: hue;
         position: relative;
@@ -494,10 +512,10 @@ export default {
         left: 0;
         bottom: 0;
         right: 0;
-        box-shadow: inset -60px 0 50px 0px rgba(19, 14, 15, 0.9);
+        box-shadow: inset -60px 0 10px -20px rgba(20, 15, 14, 0.55);
         // background-color: rgba(20, 15, 14, 0.55);
-        opacity: 0.6;
-        background-image: url("../static/texture-pagoda.png");
+        opacity: 0.65;
+        background-image: url("../static/kidpix-texture-blackamb.png");
         background-size: cover;
         // background-blend-mode: lighten;
         mix-blend-mode: overlay;
@@ -507,11 +525,17 @@ export default {
         display: flex;
         align-items: center; // 上下中央に
         justify-content: center; // 左右中央に
-        background-color: rgba(20, 15, 14, 0.9); // 素地となる色をどれくらい出すか
+        background-color: rgba(42, 30, 23, 0.78); // 素地となる色をどれくらい出すか
         position: relative;
         svg {
-          width: 80%;
-          height: 80%;
+          @media screen and (min-width:481px) {
+            width: 80%;
+            height: 80%;
+          }
+          @media screen and (max-width:480px) {
+            width: 50%;
+            height: 50%;
+          }
           .svg2 {
             fill: none;
             opacity: 0.9;
@@ -530,8 +554,8 @@ export default {
         bottom: 0;
         right: 0;
         // box-shadow: inset -60px 0 50px 0px #6A5757 /* 背景色と同じ色 */,
-        opacity: 0.6;
-        background-image: url("../static/texture-pagoda.png");
+        opacity: 0.65;
+        background-image: url("../static/kidpix-texture-blackamb.png");
         background-size: cover;
         // background-blend-mode: lighten;
         mix-blend-mode: overlay;
@@ -540,7 +564,7 @@ export default {
         display: flex;
         align-items: center; // 上下中央に
         justify-content: center; // 左右中央に
-        background-color: rgba(20, 15, 14, 0.9);
+        background-color: rgba(42, 30, 23, 0.78);
         svg {
           width: 80%;
           height: 80%;
@@ -561,10 +585,10 @@ export default {
         left: 0;
         bottom: 0;
         right: 0;
-        box-shadow: inset 60px 0 50px 0px rgba(24, 19, 14, 0.9);
+        box-shadow: inset 80px 0 10px -20px #140F0E;
         // background-color: rgba(20, 15, 14, 0.4);
         opacity: 0.65;
-        background-image: url("../static/texture-pagoda.png");
+        background-image: url("../static/kidpix-texture-blackamb.png");
         background-size: cover;
         mix-blend-mode: overlay; // plus-darker / difference / overlay / color-dodge
         background-position: 25% 75%;
