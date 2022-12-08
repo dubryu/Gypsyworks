@@ -59,8 +59,8 @@
     <!-- </div> -->
   </main>
 </template>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="jquery.ripples-min.js"></script>
+<!-- <script src=”//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js”></script>
+<script src="../plugins/jquery.ripples-min.js"></script> -->
 <script>
 import axios from 'axios'
 import '../assets/scss/style.scss'
@@ -79,11 +79,8 @@ if (process.client) {
 }
 
 // import jQuery from 'jquery'
-// global.jquery = jQuery
-// global.$ = jQuery
-// window.$ = window.jQuery = require('jquery')
-// import BoxCat1 from '../components/common/BoxCat1'
 
+// import BoxCat1 from '../components/common/BoxCat1'
 
 
 export default {
@@ -101,22 +98,11 @@ export default {
       accessToken: '',
       msg: 'change point',
       products: [],
-      colormeURL: "https://gypsyworks.shop-pro.jp/?pid=",
     }
   },
   mutations: {
   },
   created() {
-
-    // $(function(){
-    //   const $ripp = $('.column1');
-    //   $ripp.ripples({
-    //     resolution: 150,    // 波紋の広がり速度
-    //     dropRadius: 10,      // 波紋の大きさ
-    //     perturbance: 0.01   // 波紋のぶれ
-    //   });
-    // });
-    console.log("get inside categories in created")
     const firebaseConfig = {
       storageBucket: 'gs://gypsyworks-5cf3e.appspot.com'
     }
@@ -144,12 +130,25 @@ export default {
       })
   },
   mounted() {
-    // const ripp  = document.querySelector(".column");
-    // ripp.ripples({
-    //   resolution: 150,    // 波紋の広がり速度
-    //   dropRadius: 10,      // 波紋の大きさ
-    //   perturbance: 0.01   // 波紋のぶれ
+    // global.jquery = jQuery
+    // global.$ = jQuery
+    // window.$ = window.jQuery = require('jquery')
+    // var $ = require('jQuery');
+    // jQuery(function($){
+    //   $(document).ready(function() {
+    //     // const ripp  = document.querySelectorAll(".column1");
+    //     $(function(){
+    //     const ripp = $('column1');
+    //     console.log("in jQuery")
+    //       ripp.ripples({
+    //         resolution: 150,    // 波紋の広がり速度
+    //         dropRadius: 10,      // 波紋の大きさ
+    //         perturbance: 0.01,  // 波紋のぶれ
+    //       });
+    //     });
+    //   });
     // })
+
     this.gsapHorizon();
   },
   methods: {

@@ -23,6 +23,7 @@
     "firebase": "^9.10.0",
     "gsap": "^3.11.3",
     "jquery": "^2.2.4",
+    "jquery.ripples": "^0.6.3",
     "js-cookie": "^3.0.1",
     "luxy.js": "^0.1.0",
     "nuxt": "^2.13.3",
