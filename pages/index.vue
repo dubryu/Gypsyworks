@@ -79,7 +79,6 @@ if (process.client) {
 }
 
 // import jQuery from 'jquery'
-
 // import BoxCat1 from '../components/common/BoxCat1'
 
 
