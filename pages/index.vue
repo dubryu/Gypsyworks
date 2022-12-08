@@ -11,7 +11,7 @@
               </div>
 
               <div id="sns_container">
-                <a href="https://instagram.com/fumiiiiii?igshid=YmMyMTA2M2Y="><img class="snsimg" src="../static/Instagram_logo_fullcol.png"></img></a>
+                <a href="https://instagram.com/fumiiiiii?igshid=YmMyMTA2M2Y="><img class="snsimg" src="../static/instagram_logo_fullcol.png"></img></a>
                 <!-- <img class="snsimg" src="../static/Twitter_blue.png"></img> -->
               </div>
           </div>
