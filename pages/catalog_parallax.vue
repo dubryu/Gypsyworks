@@ -236,7 +236,6 @@
 .right_sprit{
   width: 50%;
   height: 100%;
-  background-color: rgb(200, 0, 100);
   position:relative;
   .right-sticky{
     top: 0;

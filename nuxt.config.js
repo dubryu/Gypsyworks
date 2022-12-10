@@ -1,3 +1,24 @@
+// fsとpathを読み込んでない場合は先頭に追記 for mkcert
+import fs from 'fs'
+import path from 'path'
+let server = {};
+if (process.env.NODE_ENV === 'development') {
+  server = {
+    port: 8080, // デフォルト: 3000
+    host: '0.0.0.0', // デフォルト: localhost
+    timing: false,
+    https: {
+      key: fs.readFileSync(path.join(__dirname, '../cert/localhost+3-key.pem')),
+      cert: fs.readFileSync(path.join(__dirname, '../cert/localhost+3.pem')),
+    },
+  }
+} else {
+  server = {
+    port: 8080, // デフォルト: 3000
+    host: '0.0.0.0', // デフォルト: localhost
+    timing: false,
+  }
+}
 
 export default {
   // ssg = static site generation (full)
@@ -12,11 +33,7 @@ export default {
   // spa
   // ssr: false,
   // target: 'server',
-  server: {
-    port: 8080, // デフォルト: 3000
-    host: '0.0.0.0', // デフォルト: localhost
-    timing: false,
-  },
+  server: server,
   router: {
     base: '/gypsyworks/'
   },
