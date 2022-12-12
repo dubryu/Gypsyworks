@@ -14,7 +14,7 @@
           <NuxtLink to="/catalog_parallax">
             <li><div class="humCATA" v-on:click='active=!active'>CATALOG</div></li>
           </Nuxtlink>
-            <li><a href="https://gypsyworks.stores.jp" target="blank" v-on:click='active=!active'>SHOP</a></li>
+            <li><a href="https://gypsyworks.shop-pro.jp" target="blank" v-on:click='active=!active'>SHOP</a></li>
             <li><a href="#news" v-on:click='active=!active'>NEWS</a></li>
         </ul>
     </div>
