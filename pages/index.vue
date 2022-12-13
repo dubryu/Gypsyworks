@@ -136,21 +136,54 @@ export default {
     }
   },
   mounted() {
+
     // this.$nextTick(() => {   // DOMが更新されるのを待って
     //   if (process.client) {  // クライアント側の場合
-        // smokeMachine
-        const SmokeMachine = require('@bijection/smoke') // requireで読み込んで使う
-        var canvas = document.getElementById('canvas')
-        canvas.width = 1000
-      	canvas.height = 1000
-      	var ctx = canvas.getContext('2d')
-
-        var party = SmokeMachine(ctx, [this.rms * 10000, 200.8, 200.2])
-        party.start() // start animating
-        canvas.addEventListener('mousemove', e => {
-            var t = Math.floor(Math.random() * 200) + 3800
-            party.addSmoke(e.offsetX-200,e.offsetY,.5,t)
-        });
+        // // smokeMachine
+        // const SmokeMachine = require('@bijection/smoke') // requireで読み込んで使う
+        // var canvas = document.getElementById('canvas')
+        // canvas.width = 1000
+      	// canvas.height = 1000
+      	// var ctx = canvas.getContext('2d')
+        //
+        // var party = SmokeMachine(ctx, [100, 200.8, 200.2])
+        // party.start() // start animating
+        // var t = Math.floor(Math.random() * 200) + 3800
+        // party.addSmoke(500,500,10,t)
+        // canvas.addEventListener('mousemove', e => {
+        //     var t = Math.floor(Math.random() * 200) + 3800
+        //     party.addSmoke(e.offsetX-200,e.offsetY,.5,t)
+        // });
+        // // for sp event
+        // var supportTouch = 'ontouchend' in document;
+        // var ongoingTouches = [];
+        // var EVENTNAME_TOUCHSTART = supportTouch ? 'touchstart' : 'mousedown';
+        // var EVENTNAME_TOUCHMOVE = supportTouch ? 'touchmove' : 'mousemove';
+        // var EVENTNAME_TOUCHEND = supportTouch ? 'touchend' : 'mouseup';
+        // console.log("EVENTNAME_TOUCHMOVE:", EVENTNAME_TOUCHMOVE);
+        // canvas.addEventListener("touchstart", handleStart, false);
+        // canvas.addEventListener("touchmove", handleMove, false);
+        // function handleStart(event) {
+        //   console.log("toueeeeeeech")
+        //   var t = Math.floor(Math.random() * 200) + 3800
+        //   party.addSmoke(event.changedTouches[0].pageX,event.changedTouches[0].pageY,.5,t)
+        //   var touches = event.changedTouches;
+        //   for (var i = 0; i < touches.length; i++) {
+        //     ongoingTouches.push(copyTouch(touches[i]));
+        //     console.log("ongoingTouches.push")
+        //   }
+        // };
+        // function handleMove(event) {
+        //   event.preventDefault();
+        //   var t = Math.floor(Math.random() * 200) + 3800
+        //   // party.addSmoke(event.changedTouches[0].pageX,event.changedTouches[0].pageY,.5,t)
+        //   var touches = event.changedTouches;
+        //   for (var i = 0; i < touches.length; i++) {
+        //     console.log("touches[i].pageX:" + touches[i].pageX);
+        //     console.log("touches[i].pageY:" + touches[i].pageY);
+        //     party.addSmoke(touches[i].pageX+200,touches[i].pageY+200,.5,t)
+        //   }
+        // };
         // ripples
         // const Ripples = require('jquery.ripples')
         // $(function(){
@@ -251,10 +284,49 @@ export default {
     //   party.start()
     //   party.addSmoke(500,500,.5)
     // }
-
+    this.smoke();
     this.gsapHorizon();
   },
   methods: {
+    smoke () {
+      // smokeMachine
+      const SmokeMachine = require('@bijection/smoke') // requireで読み込んで使う
+      var canvas = document.getElementById('canvas')
+      canvas.width = 1000
+      canvas.height = 1000
+      var ctx = canvas.getContext('2d')
+
+      var party = SmokeMachine(ctx, [100, 200.8, 200.2])
+      party.start() // start animating
+      var t = Math.floor(Math.random() * 200) + 3800
+      party.addSmoke(500,500,10,t)
+      canvas.addEventListener('mousemove', e => {
+          var t = Math.floor(Math.random() * 200) + 3800
+          party.addSmoke(e.offsetX-200,e.offsetY,.5,t)
+      });
+      // for sp event
+      var supportTouch = 'ontouchend' in document;
+      var EVENTNAME_TOUCHMOVE = supportTouch ? 'touchmove' : 'mousemove';
+      console.log("EVENTNAME_TOUCHMOVE:", EVENTNAME_TOUCHMOVE);
+      canvas.addEventListener("touchstart", handleStart, false);
+      canvas.addEventListener("touchmove", handleMove, false);
+      function handleStart(event) {
+        var t = Math.floor(Math.random() * 200) + 3800
+        party.addSmoke(event.changedTouches[0].pageX,event.changedTouches[0].pageY,.5,t)
+        var touches = event.changedTouches;
+      };
+      function handleMove(event) {
+        // event.preventDefault();
+        var t = Math.floor(Math.random() * 200) + 3800
+        // party.addSmoke(event.changedTouches[0].pageX,event.changedTouches[0].pageY,.5,t)
+        var touches = event.changedTouches;
+        for (var i = 0; i < touches.length; i++) {
+          console.log("touches[i].pageX:" + touches[i].pageX);
+          console.log("touches[i].pageY:" + touches[i].pageY);
+          party.addSmoke(touches[i].pageX+200,touches[i].pageY+200,.5,t)
+        }
+      };
+    },
     gsapHorizon () {
       // window.addEventListener("load", function(){
         const horizontalize  = document.querySelector(".horizontalize");

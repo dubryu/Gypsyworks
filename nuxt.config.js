@@ -67,7 +67,6 @@ export default {
     { src: '@/plugins/plugin', mode: 'client' },
     { src: '~/plugins/local-storage' },
     { src: '~/plugins/axios' },
-    { src: '~/plugins/SmokeMachine', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -98,7 +97,7 @@ export default {
     //     }
     //   }
     // }
-    transpile: ['vue-intersect', 'gsap', 'SmokeMachine'],
+    transpile: ['vue-intersect', 'gsap'],
     babel: {
       babelrc: false,
       compact: false
