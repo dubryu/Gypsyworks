@@ -33,7 +33,7 @@ export default {
   // spa
   // ssr: false,
   // target: 'server',
-  server: server,
+  server,
   router: {
     base: '/gypsyworks/'
   },

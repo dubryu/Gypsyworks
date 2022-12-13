@@ -6,7 +6,7 @@
           <div class="column column1">
             <canvas id="canvas">
             </canvas>
-            <button id="mic_btn">mic on/off{{rms}}</button>
+            <!-- <button id="mic_btn">mic on/off{{rms}}</button> -->
             <div id="logo_back_blur"></div>
             <div id="logo_box">
               <img class="logo_img" src="../static/Gypsyworks_logo_black.png"></img>
@@ -779,8 +779,9 @@ export default {
         font-feature-settings: "titl";
         h1 {
           margin: 10% 7% 0% 5%;
-          background-color: red;
+          background-color: rgba(200,200,93,0.5);
           height: 80%;
+          color: #FFFFFF;
         }
         h2 {
           margin: 12% 1% 0% 0%;
